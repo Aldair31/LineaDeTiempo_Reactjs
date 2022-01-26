@@ -1,5 +1,7 @@
 import { GoogleLogin } from 'react-google-login';
 import { useState,useEffect } from 'react'
+import '../style/styles.css'
+import img from '../img/cronograma.png'
 
 function Login() {
 
@@ -38,25 +40,45 @@ function Login() {
     )
     
     return (
+
         <>
-            {
-                logeado == null ? <GoogleLogin
-                    clientId="1056717193966-him0af1q4ed7csfr3n0iol6cct22qkj5.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> : null
-            }
+    
+           
             {
                 logeado !== null ? <div>Contenido secreto</div> : null
             }
             {
-               <div>
-                    <div>Hola {logeado?.profileObj.name}</div>
-                    <div><img src={logeado?.profileObj.imageUrl}/></div>
-                    <div>{logeado?.profileObj.googleId}</div>
-               </div>
+                <div class="container">
+                    <div class="container_form">
+                  <img src={img} alt="imagen de linea de tiempo"/>
+                  <h2>Iniciar Sesion</h2>
+                  <form action="">
+                      <div>
+                          <input type="text" placeholder="Usuario"/>
+                      </div>
+                      <div>
+                          <input type="password" placeholder="Password"/>
+                      </div>
+                      <input class="check"type="checkbox" id="checkid"/>
+                      <label for="checkid">Recordar</label>
+                      <a href="#">Ovidaste tu contraseña</a>
+                      <input class= "boton"type="submit" value="Iniciar"/>
+                      <div class="btnlogin">
+                      {
+                        logeado == null ? <GoogleLogin
+                            clientId="1056717193966-him0af1q4ed7csfr3n0iol6cct22qkj5.apps.googleusercontent.com"
+                            buttonText="Continuar con Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        /> : null
+                      }
+                      </div>
+                    
+                      
+                  </form>
+                    </div>
+                </div>
             }
         </>
     );
