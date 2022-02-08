@@ -2,7 +2,7 @@ import { GoogleLogin } from 'react-google-login';
 import { useState,useEffect } from 'react'
 import '../style/styles.css'
 import img from '../img/cronograma.png'
-
+//
 function Login() {
 
     const [logeado, setLogeado] = useState(null)
