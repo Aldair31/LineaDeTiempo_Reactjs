@@ -1,0 +1,133 @@
+.formThemes{
+    background:#f4f4f4;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding-top: 20px;
+    height: 65vh;
+    overflow-y: scroll;
+    margin-left: 11px;
+}
+h3{
+    text-align: center
+}
+.temas {
+	display: flex;
+	flex-wrap: wrap;
+   
+}
+.tema {
+	background-color: #fff;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+	width: 32%;
+	box-shadow: 6px 2px 9px 1px rgba(197, 197, 197, 0.459);
+}
+.tema .tema-info {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+.tema .tema_info p{
+	margin-left: 3%;
+}
+.tema h3 {
+	font-size: 21px;
+	font-weight: 100;
+	background-color:#73D3CF ;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.tema_info .btn_eliminar button{
+	border:none;
+	background-color: #35495e;
+}
+.tema_info .btn_eliminar i{
+	color:#fff;
+	cursor: pointer;
+	font-size: 15px;
+}
+.tema_info .btn_eliminar i:hover{
+	color: red;
+}
+.tema_info .btn_editar i{
+	color: #fffF;
+	font-size: 15px;
+}
+.tema_info .btn_editar i:hover{
+	color: #41b883;
+}
+.tema_info .btn_vermas i{
+	color:#fff;
+	cursor: pointer;
+	font-size: 15px;
+}
+.tema_info .btn_vermas i:hover{
+	color: #73D3CF;
+}  
+.formularioModal{
+    padding-left: 30px
+}
+.formularioModal label{
+    color:#000;
+    font-weight: bold;
+}
+input, textarea{
+    border: 2px solid #222222;
+    padding: 8px;
+    border-radius: 4px;
+    width: 90%;
+    display: block;
+    margin-bottom: 17px;
+    background-color: #ffffff ;
+    margin-top: 13px;
+    border: 2px solid #20B2AA;
+    color:#000;
+    font-size: 15px;
+                
+}
+.enviarThemes{
+    width: 90%;
+    border: 2px solid #20B2AA;
+    padding: 6px;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 17px;
+    background-color: #ffffff ;
+    margin-top: 10px;
+	background-color:#20B2AA;
+    font-size: 18px;
+}
+.enviarThemes:hover{
+	background-color:#20B2AA;
+    cursor: pointer;
+    color:#fff
+}
+.barra_btn{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-around;
+	background-color: #35495e;
+    padding: 5px;
+}
+.iconos_btn{
+    display: flex;
+    gap: 15px;
+}
+@media screen and (max-width: 900px) {
+	.tema{
+		width: 48%;
+	}
+    .tema{
+		width: 100%;
+	}
+	.tema h3 {
+		font-size: 19px;
+	}
+	.tema .tema_info p{
+		font-size: 17px;
+	}
+    .tema h3 {
+		font-size: 18px;
+	}
+}

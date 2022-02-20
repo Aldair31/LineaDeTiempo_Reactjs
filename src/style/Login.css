@@ -1,12 +1,10 @@
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.imgContainer{
     background-image: url("../img/lineatiempo.png");
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .container{
     display: flex;
@@ -14,56 +12,32 @@ body{
     align-items: center;
     height: 100vh;
 }
-
 .container_form{
     background-color: #0a1e35;
     border-radius: 15px;
     padding: 40px;
     opacity: 0.9;
-
 }
-
-img{
-    width: 100px;
+.container_form img{
+    display: flex;
+    justify-content: center;
+    margin: auto;
     height: 100px;
-    margin-left: 110px;
 }
-
-h2{
+.container_form h2{
     text-align: center;
-    color: white;
+    color: #FFF;
 }
-
-input{
-    display: block;
-    width: 300px;
-    height: 40px;
-    margin-bottom: 20px;
-    padding: 0 15px;
-    font-size: 18px;
-    outline: none;
-    border: none;
-    background: transparent;
-    color: white;
-    border-bottom: 2px solid white;
-
-}
-
 .check{
     width: 15px;
     height: 15px;
     display: inline;
-}
-
-label{
-    color: white;
 }
 a{
     color: white;
     text-decoration: none;
     margin-left: 45px;
 }
-
 .boton{
     width: 150px;
     border-radius: 15px;
@@ -73,23 +47,25 @@ a{
     border: none;
     border-bottom: 4px solid #0b5a1c;
     margin-left: 96px;
-
 }
-
-a:hover{
-    color: #b8b8b8; ;
-}
-
-label:hover{
-    color: #b8b8b8;
-}
-
 .boton:active{
     background-color: #0b5a1c;
     width: 145px;/*reduce*/ 
 }
-
 .btnlogin{
     display: flex;
     justify-content: center;
+    color: #000
 }
+@media screen and (max-width: 900px) {
+
+    .container_form{
+        padding: 30px;
+    }
+    .container_form img{
+        width: 100px;
+        height: 100px;
+        
+    }
+}
+
