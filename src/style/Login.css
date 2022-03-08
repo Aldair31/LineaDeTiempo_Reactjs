@@ -1,22 +1,38 @@
-.imgContainer{
+/* .imgContainer{
     background-image: url("../img/lineatiempo.png");
     height: 100vh;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+} */
+.lineaLogin{
+    height: 12vh;
+    width: 100%;
+    background-color: #163C79;
+}
+.lineaLogin h2{
+    color: #FFF;
+    text-align: center;
+    font-weight: 500;
+    font-size: 28px;
+    /* text-justify: center; */
+    padding-top: 16px;
 }
 .container{
+    background-color: #FFF;
     display: flex;
+    gap: 50px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 88vh;
 }
 .container_form{
-    background-color: #0a1e35;
+    /* background-color: #0a1e35; */
+    background-color: #163C79;
     border-radius: 15px;
     padding: 40px;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 .container_form img{
     display: flex;
@@ -24,8 +40,11 @@
     margin: auto;
     height: 100px;
 }
-.container_form h2{
+.container_form h3{
     text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    /* font-weight: 300; */
     color: #FFF;
 }
 .check{
@@ -33,11 +52,11 @@
     height: 15px;
     display: inline;
 }
-a{
+/* a{
     color: white;
     text-decoration: none;
     margin-left: 45px;
-}
+} */
 .boton{
     width: 150px;
     border-radius: 15px;
@@ -60,12 +79,24 @@ a{
 @media screen and (max-width: 900px) {
 
     .container_form{
-        padding: 30px;
+        padding: 40px;
     }
-    .container_form img{
+    /* .container_form img{
         width: 100px;
         height: 100px;
         
+    } */
+    .container{
+        /* padding-top: -50%; */
+        flex-direction: column-reverse;
+    }
+    .container .imagen_Login img{
+        margin-top: -20%;
+        width: 300px;
+        /* height: 300px; */
+    }
+    .lineaLogin h2{
+        padding-top: 30px;
     }
 }
 

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../style/Dashboard.css';
 import Themes from './Themes';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import LineaDeTiempo from './LineaDeTiempo';
 
 const Dashboard =({usuarios})=>{
 	const [open, setOpen]= useState(false)
@@ -8,7 +10,7 @@ const Dashboard =({usuarios})=>{
     return(
         <>
 		<div>
-			<header id="header">
+			<header id="header" className='headerDashboard'>
 				<nav>
 					<div className="header_left">
 						<div id="btn_ops">
@@ -16,7 +18,7 @@ const Dashboard =({usuarios})=>{
 								<i class="fas fa-bars"></i>
 							</button>
 						</div>
-						<h3>LINEA DE TIEMPO</h3>
+						<h3>Linea de Tiempo</h3>
 					</div>
 					<div className="header_rigth" id="header_rigth">
 						<p className="usuario" id="nombre_usuario">{usuarios.profileObj.name}</p>
@@ -45,7 +47,29 @@ const Dashboard =({usuarios})=>{
 				<div class="contenido" >
 					<Themes id={usuarios.profileObj.googleId}/>
 				</div>
+				{/* <BrowserRouter>
+					<Routes>
+						<Route
+							path='/LineaDeTiempo/:id'
+							element={<LineaDeTiempo/>}
+						/>
+					</Routes>
+				</BrowserRouter>  */}
 			</main>
+		</div>
+		<div>
+		{/* <BrowserRouter>
+			<Routes>
+				<Route
+					path='/LineaDeTiempo/:id'
+					element={<LineaDeTiempo/>}
+				/>
+			</Routes>
+		</BrowserRouter> */}
+		
+			
+				
+			
 		</div>
     	</>
     );

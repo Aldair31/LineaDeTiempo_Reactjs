@@ -1,9 +1,12 @@
 import { GoogleLogin } from 'react-google-login';
 import { useState,useEffect } from 'react'
 import '../style/Login.css'
-import img from '../img/cronograma.png'
+import img from '../img/imgLogin.jpeg'
 import url from '../keys/backend_keys';
 import Dashboard from './Dashboard';
+import { BrowserRouter,Routes, Route, NavLink, useNavigate} from 'react-router-dom';
+
+
 //
 function Login() {
 
@@ -11,7 +14,12 @@ function Login() {
     const responseGoogle = (response) => {
         console.log(response);
         setLogeado(response)
+        // navigate("Dashboard")
     }
+    // const navigate= useNavigate()
+    // const handleClick = () =>{
+    //     navigate("Dashboard")
+    // }
     useEffect(
         function(){
             if(logeado!=null){
@@ -42,15 +50,28 @@ function Login() {
         <>
             {
                 logeado !== null ? 
-                <div><Dashboard usuarios={logeado}/></div> 
+                <div>
+                    <Dashboard usuarios={logeado}/>
+                    {/* <BrowserRouter>
+                        <Routes>
+                            <Route
+                                path='/Dashboard'
+                                element={<Dashboard usuarios={logeado}/>}
+                            />
+                        </Routes>
+                    </BrowserRouter> */}
+                </div> 
                 :
                 <div class="imgContainer">
+                    <div className='lineaLogin'>
+                        <h2>Bienvenido a TimeLine</h2>
+                    </div>
                     <div className='container'>
                         <div className="container_form">
-                            <h2>Iniciar Sesion</h2>
-                            <img src={img} alt="imagen de linea de tiempo"/>
+                            <h3>Iniciar Sesión</h3>
+                            {/* <img src={img} alt="imagen de linea de tiempo"/> */}
                             <br />
-                            <br />
+                            {/* <br /> */}
                             <form className='formulario'>
                                 <div className="btnlogin">
                                 {
@@ -60,10 +81,14 @@ function Login() {
                                         onSuccess={responseGoogle}
                                         onFailure={responseGoogle}
                                         cookiePolicy={'single_host_origin'}
+                                        // onClick={handleClick}
                                     /> : null
                                 }
                                 </div>
                             </form>
+                        </div>
+                        <div className='imagen_Login'>
+                            <img src={img} alt="imagen de linea de tiempo" width='400px'/>
                         </div>
                     </div>
                 </div>

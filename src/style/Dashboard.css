@@ -12,7 +12,7 @@
 	background-color: #35495e;
 }
 * {
-	font-family: 'Open Sans';
+	/* font-family: 'Open Sans'; */
 	margin: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -23,7 +23,7 @@
 	background-color: rgba(98, 92, 128, 0.377);
 }
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Poppins",Arial, Helvetica, sans-serif;
 	background-color: rgb(247, 247, 247);
 }
 #btn_ops {
@@ -44,6 +44,7 @@ body {
 	line-height:40px;
 	font-size: 20px;
 	color:#fff
+	/* color: #000; */
 }
 .header_left {
 	display: flex;
@@ -54,7 +55,10 @@ body {
 	margin-left: 15px;
 	font-size: 19px;
 	font-weight: 300;
-    color: #fff
+    color: #fff;
+	/* color:#000; */
+	font-family:'Poppins';
+	font-weight: 400;
 }
 .header_rigth {
 	display: flex;
@@ -70,21 +74,26 @@ body {
 .usuario{
 	text-decoration: none;
 	color: #fff;
+	/* color:#000; */
+	font-weight: 300;
 }
 .nombre{
 	color:#fff;
 }
-header {
-	background-color: #fff;
+.headerDashboard {
+	/* background-color: #fff; */
+	background-color: #163C79;
 	display: flex;
 	height: 9.8vh;
 	align-items: center;
 	width: 100%;
-	box-shadow: 0px 0px 5px 2px rgba(119, 119, 119, 0.24);
+	/* box-shadow: 0px 0px 5px 2px rgba(119, 119, 119, 0.24); */
+	box-shadow: 0px 0px 5px 2px #61DAFB;
 	margin-bottom: 0.1%;
-	background-color: #31545C
+	/* background-color: #31545C */
+	/* background-color: #20232A; */
 }
-header nav {
+.headerDashboard nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -96,79 +105,109 @@ main {
 	height:90vh;
 	background-color: #31545C;
 	display: flex;
-	position: relative;
+	/* position: relative; */
 }
 main .contenido {
-	padding: 25px;
+	/* padding: 0px 80px; */
 	width: 100%;
-	background-color:#ECF0F1;
+	/* background-color:#ECF0F1; */
+	/* background-color: #32363E; */
+	/* background-color: #dbdbdb; */
+	background-color: #f4f4f4;
+	/* background-color: #FFF; */
 	position: relative;
 }
 main aside {
-	height: 90vh;
+	/* width: 5%; */
+	/* width: 5%; */
+	/* height: 90vh; */
 }
 main aside nav {
-	margin-right: 0px;
+	/* width: 5%; */
+	/* width: 50%; */
+	/* margin-right: 0px; */
 	height: 100%;
-	background-color: #31545C;
+	/* background-color: #20232A; */
+	background-color:#dbdbdb;
+	/* background-color: #31545C; */
 }
 main nav a {
-	width: 180px;
+	/* width: 180px; */
+	/* width: 90%; */
 	font-size: 12px;
-	background-color: #35495e;
-	display: block;
-	margin-left: 0px;
-	padding: 15px;
-	color: #fff;
-	border-bottom: 1px solid #73D3CF ;
+	/* background-color: #32363E; */
+	background-color: #f4f4f4;
+	/* background-color: #35495e; */
+	display: flex;
+	gap: 10px;
+	margin: 0;
+	/* margin-left: 0px; */
+	padding: 20px 30px;
+	/* color: #fff; */
+	color: #000;
+	/* border-bottom: 1px solid #73D3CF ; */
+	border-bottom: 1px solid #61DAFB ;
 	text-decoration: none;
 }
 main nav a:hover {
 	background-color: #fff;
-	color: #41b883;
+	/* color: #41b883; */
+	color: #61DAFB;
 }
 .op_user {
-	color: #fff;
-	background-color: #41b883;
+	/* color: #fff; */
+	color: #000;
+	background-color: #dbdbdb;
+	/* background-color: #61DAFB; */
+	/* background-color: #41b883; */
 }
 .op_user:hover {
-	color: #41b883;
+	/* color: #41b883; */
+	color: #61DAFB;
 }
-h2 {
+/* h2 {
 	color:#fff;
 	font-weight: normal;
 	font-size: 32px;
 	margin-bottom: 14px;
-}
+} */
 h4, p {
 	font-weight: 100;
 }
 
 @media screen and (max-width: 800px) {
-
+	header {
+		/* position: fixed; */
+		/* background-attachment: fixed; */
+		/* top: 1; */
+		/* z-index: 2; */
+	}
 	#aside{
 		height: 100vh;
 		position: absolute;
 	}
 	.sidebarOpen{
+		width: 180%;
 		position: fixed;
 		z-index: 5;
 		opacity: 0.95;
 	}
-	aside nav a{
+	/* aside nav a{
 		width:325px;
-	}
+	} */
 	main .contenido {
-		padding: 2px;
+		/* padding: 2px;
+		max-height: 100vh; */
+		/* height: 100vh; */
 	}
 	h3 {
 		font-size: 15px;
 	}
-	h2 {
+	/* h2 {
 		margin-top: 5px;
 		text-align: center;
 		font-size: 22px;
-	}
+	} */
 	#nombre_usuario {
 		display: none;
 	}
@@ -185,12 +224,21 @@ h4, p {
 	}
 }
 
+
+
 .sidebar{
-	width: 0;
+	width: auto;
+	/* height: 90vh;
+	background-color:#dbdbdb; */
 	position: relative;
 	transition: width 2s all ease-in-out;
 }
+.sidebar span {
+	display: none;
+}
 .sidebarOpen{
-	width: auto;
+	width: 180px;
+	/* width: 800%; */
+	/* width: 80%; */
 	transition: width 2s all ease-in-out;
 }

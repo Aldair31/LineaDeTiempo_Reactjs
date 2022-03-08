@@ -1,0 +1,239 @@
+.header_Principal{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    height: 12vh;
+    background-color: #163C79;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    width: 100%;
+   
+}
+
+.header_Principal .imagen_EPICI{
+    background-color: transparent;
+    /* background: linear-gradient(rgb(5,7,12,0.75), rgb(5,7,12,0.75));  */
+    /* opacity: 3; */
+}
+.header_Principal .imagen_EPICI img{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    opacity: 2;
+    padding-left: 15px;
+    border-left: 2px solid #FFF;
+}
+.header_Principal .header_enlaces{
+    display: flex;
+    column-gap: 12px;
+    align-items: center;
+}
+.header_Principal .header_enlaces .linea_enlaces{
+    width: 2px;
+    height: 22px;
+    background-color: #FFF;
+}
+.header_Principal .header_enlaces button{
+    border: none;
+    background-color: transparent;
+    color: #FFF;
+    font-weight: 300;
+    font-size: 18px;
+    text-decoration: underline;
+}
+.header_Principal .header_enlaces button:hover{
+    cursor: pointer;
+}
+.header_Principal .header_enlaces a{
+    color: #FFF;
+}
+
+.pagina_informativa{
+    padding-top: 14vh;
+    background-color: #FFF;
+}
+
+.seccion_registrarse{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 2% 10%;
+}
+.seccion_registrarse .seccion_texto h2{
+    width: 34%;
+    color: #163C79;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.seccion_registrarse .seccion_texto h3{
+    font-weight: 700;
+    font-size: 25px;
+    width: 40%;
+    text-align: left;
+    padding-bottom: 15px;
+}
+.seccion_registrarse .seccion_texto p{
+    width: 75%;
+    font-weight: 500;
+}
+.seccion_registrarse .seccion_texto .btn_registrarse button{
+    background-color: #163C79;
+    color:#FFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 18%;
+}
+.seccion_registrarse .seccion_texto .btn_registrarse button:hover{
+    color: #163C79;
+    background-color: #d1dbeb;
+    cursor: pointer;
+}
+.seccion_registrarse .seccion_imagen .imagen_LineaDeTiempo{
+    display: grid;
+    justify-items: center;
+    padding-bottom: 5%;
+}
+.seccion_registrarse .seccion_imagen .imagen_LineaDeTiempo img{
+    width: 320px;
+    height: 320px;
+}
+.seccion_registrarse .seccion_imagen .cuadrantes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+}
+.seccion_registrarse .seccion_imagen .cuadrantes .cuadrante{
+    background-color: #d1dbeb;
+    text-align: center;
+    padding: 8px 5px;
+}
+.seccion_aprende_como{
+    padding-top: 3%;
+}
+.seccion_aprende_como h2{
+    color: #163C79;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 3%;
+}
+.seccion_aprende_como .seccion_aprende{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5% 0;
+}
+.seccion_aprende_como .seccion_aprende .aprende_como{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* padding-bottom: 2%; */
+}
+.seccion_aprende_como .seccion_aprende .aprende_como i{
+    display: grid;
+    justify-items: right;
+    align-items: center;
+    font-size: 25px;
+    color: #163C79;
+}
+.seccion_aprende_como .seccion_aprende .aprende_como .cuadro{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    
+}
+.seccion_aprende_como .seccion_aprende .aprende_como .cuadro div{
+    /* display: block;
+    justify-content: center; */
+    text-align: center;
+    background-color: #d1dbeb;
+    color: #163C79;
+    width: 50%;
+    padding: 10px 5px;
+    /* padding: 5px 5px;
+    margin: 5% 30%; */
+}
+.seccion_aprende_como .seccion_aprende .aprende_como_texto{
+    /* width: 80%; */
+    display: grid;
+    justify-items: left;
+    align-items: center;
+    
+}
+.seccion_aprende_como .seccion_aprende .aprende_como_texto p{
+    width: 50%;
+    text-align: justify;
+    font-weight: 300;
+    font-size: 14px;
+}
+.seccion_organizado_por h2{
+    color: #163C79;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+.seccion_organizado_por .seccion_organizado{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 30px;
+}
+.seccion_organizado_por .seccion_organizado .imagen_UNPRG{
+    display: grid;
+    justify-items: right;
+}
+.seccion_organizado_por .seccion_organizado .imagen_UNPRG img{
+    width: 280px;
+    height: 110px;
+}
+.seccion_organizado_por .seccion_organizado .imagen_FACFYM img{
+    width: 280px;
+    height: 110px;
+}
+.seccion_nosotros h2{
+    color: #163C79;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+.seccion_nosotros .nosotros{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 22%;
+    column-gap: 50px;
+    padding-bottom: 5%;
+    color: #163C79;
+}
+.seccion_nosotros .nosotros .nosotros_1{
+    display: grid;
+    justify-items: right;
+}
+.seccion_nosotros .nosotros .nosotros_3{
+    display: grid;
+    justify-items: left;
+}
+.seccion_nosotros .nosotros .nosotros_4{
+    display: grid;
+    justify-items: right;
+}
+.seccion_nosotros .nosotros .nosotros_6{
+    display: grid;
+    justify-items: left;
+}
+
+.barra_footer{
+    width: 100%;
+    height: 6vh;
+    background-color: #d1dbeb;
+}
+.barra_footer p{
+    color: #163C79;
+    text-align: center;
+    font-weight: 300;
+    display: block;
+    padding-top: 8px;
+}

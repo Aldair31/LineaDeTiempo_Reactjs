@@ -1,6 +1,9 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
-import '../style/Themes.css'
+import '../style/Themes.css';
+// import { Link } from 'react-router-dom';
+import { BrowserRouter,Routes, Route, NavLink } from 'react-router-dom';
+import LineaDeTiempo from './LineaDeTiempo';
 import url from '../keys/backend_keys';
 
 const Themes = ({id})=>{
@@ -9,6 +12,13 @@ const Themes = ({id})=>{
     const [eliminar, setEliminar]= useState(false)
     const [dataItem, setDataItem] = useState({})
     const [modal, setModal] = useState(false)
+    const [buscar, setBuscar] = useState('')
+    function buscarTema(term){
+		return function(x){
+			// return x.name.includes(term) || !term
+            return (x.name.toString().toLowerCase()).includes(term.toLowerCase()) || !term
+		}
+	}
     useEffect(() => {
         fetch(`${url}/api/listTheme`)
             .then((resp) => resp.json())
@@ -548,31 +558,44 @@ const Themes = ({id})=>{
         <>
             {/* {eliminar && <ModalEliminarTemas/>} */}
             {modal && <ModalAgregarTemas/>}
-            <div style={{display:'flex', justifyContent: 'center'}}>
-                <h2 style={{color:'#4B5355'}}>Temas</h2>
+            <div className='AgregarYBuscar'>
+                {/* <h2 style={{color:'#FFF'}}>Temas</h2> */}
                 {/* <ModalAgregarTemas/> */}
-                <div>
-                    <button
+                <div className='btnAgregarTema'>
+                    <button className='AgregarTema'
                         onClick={() => {
                             setModal(true);
                         }}
                         style={{
                             border:'0',
-                            fontSize: '16px',
+                            // fontSize: '16px',
                             cursor: 'pointer',
                             color: 'crimson',
                             backgroundColor:'transparent',
-                            textDecoration:'underline'
+                            // textDecoration:'underline'
                         }}
                     >
-                        <strong style={{fontSize:'40px'}}><i class="fas fa-plus-circle"></i></strong> 
+                        <p>Temas</p>
+                        <i class="fas fa-plus-circle"></i>
                         
                     </button>
                 </div>
+                <div className='btnBuscarTema'>
+					<i className="fas fa-search"></i>
+					<input 
+						type="search" 
+                        className='buscarTema'
+						placeholder='Buscar por nombre'
+						name='buscar'
+						onChange={e => setBuscar(e.target.value)}
+						autoComplete='off'
+					>
+					</input>
+				</div>
             </div>
-            <div class="temas">
+            <div className="temas">
                     {
-                        datos.map((item) => {
+                        datos.filter(buscarTema(buscar)).map((item) => {
                             return(
                                 <>
                                     <div className='tema'>
@@ -629,7 +652,28 @@ const Themes = ({id})=>{
                                                     </p>
                                                 </div>
                                                 <div className='icono_vermas'>
-                                                    <p className="btn_vermas"><i className="fas fa-external-link-alt"></i></p>
+                                                    <p className="btn_vermas">
+                                                        <>
+                                                            <BrowserRouter>
+                                                                <NavLink
+                                                                    to={`/LineaDeTiempo/${item.id}`}
+                                                                >
+                                                                    <i className="fas fa-external-link-alt"></i>
+                                                                </NavLink>
+                                                                {/* <Routes>
+                                                                    <Route
+                                                                        path='/LineaDeTiempo/:id'
+                                                                        element={<LineaDeTiempo/>}
+                                                                    />
+                                                                </Routes> */}
+                                                                
+                                                            
+                                                            </BrowserRouter>
+                                                        </>
+                                                        
+                                                        
+                                                        
+                                                    </p>
                                                 </div>
 
                                             </div>
