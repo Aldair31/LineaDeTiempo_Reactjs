@@ -5,16 +5,19 @@ import Login from "./components/Login";
 import PaginaPrincipal from "./components/PaginaPrincipal";
 import General from './components/General'
 import Acceso from "./components/Acceso";
+import FormularioDatosUsuario from '../src/components/FormularioDatosUsuario'
 
 function App() {
   const [user, setUser]= useState(null)
   return (
     <div>  
         {/* <PaginaPrincipal/> */}
+        <Login/>
+        {/* <FormularioDatosUsuario/> */}
        <>
-      <BrowserRouter>
-        <Routes>
-            <Route
+      {/* <BrowserRouter>
+        <Routes> */}
+            {/* <Route
                 path='/'
                 element={<General/>}
             />
@@ -29,7 +32,7 @@ function App() {
             <Route
                 path='/Login'
                 element={<Login/>}
-            />
+            /> */}
             {/* {user && (
               <Route
                 path='/Dashboard'
@@ -37,8 +40,8 @@ function App() {
               />
             )} */}
             
-        </Routes>
-      </BrowserRouter>
+        {/* </Routes>
+      </BrowserRouter> */}
       </>
       
       

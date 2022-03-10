@@ -1,0 +1,109 @@
+.datosUsuario{
+    background-color: #163C79;
+    width: 100%;
+    height: 8vh;
+}
+.contenedorDatosUsuario{
+    width: 100%;
+    height: 92vh;
+    background-color: rgba(22, 60, 121, 0.12);;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.contenedorDatosUsuario .completarDatos{
+    display: block;
+    background-color: #FFF;
+    width: 60%;
+    height: 80vh;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.contenedorDatosUsuario .completarDatos h2{
+    font-weight: 700;
+    font-size: 27px;
+    color: #163C79;
+    text-align: center;
+    padding-top: 1%;
+}
+.formularioDatosUsuario .datosPersonales h3{
+    padding-top: 3%;
+    font-weight: 500;
+    color: #163C79;
+    text-align: center;
+}
+
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1% 6%;
+    column-gap: 60px;
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila1 .dato1{
+    display: grid;
+    justify-items: right;
+    /* width: 80%; */
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila1 .dato1 label{
+    display: grid;
+    justify-self: left;
+    padding-left: 10%;
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0 6%;
+    column-gap: 60px;
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila2 .dato3{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0 10%;
+    column-gap: 22px;  
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila2 .dato3 .dato3_2{
+    display: grid;
+    justify-items: left; 
+}
+.formularioDatosUsuario .datosPersonales .datoPersonal .datosfila2 .dato3 .dato3_2 select{
+    margin-top: -11px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+    width: 105px;
+    border: 2px solid #000;
+    border-radius: 10px;
+
+}
+.formularioDatosUsuario .datosDeUsuario h3{
+    padding-top:2%;
+    font-weight: 500;
+    color: #163C79;
+    text-align: center;
+}
+.formularioDatosUsuario .datosDeUsuario .nombreUsuario{
+    padding-top: 1%;
+    width: 50%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+}
+.formularioDatosUsuario .btnDatosRegistro{
+    display: block;
+    background-color: #FFF;
+    border: solid 2px;
+    border-color: #163C79;
+    border-radius: 10px;
+    color: #163C79;
+    padding: 11px 44px;
+    font-weight: bold;
+    font-size: 15px;
+    margin: auto;
+}
+.formularioDatosUsuario .btnDatosRegistro:hover{
+    background-color: #163C79;
+    color: #FFF;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+

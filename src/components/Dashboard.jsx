@@ -3,6 +3,7 @@ import '../style/Dashboard.css';
 import Themes from './Themes';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import LineaDeTiempo from './LineaDeTiempo';
+import logo from '../img/Logo.png'
 
 const Dashboard =({usuarios})=>{
 	const [open, setOpen]= useState(false)
@@ -13,12 +14,12 @@ const Dashboard =({usuarios})=>{
 			<header id="header" className='headerDashboard'>
 				<nav>
 					<div className="header_left">
-						<div id="btn_ops">
-							<button id="ops" onClick={()=>{setOpen(!open)}}>
+						<div className="btn_ops">
+							<button className="ops" onClick={()=>{setOpen(!open)}}>
 								<i class="fas fa-bars"></i>
 							</button>
 						</div>
-						<h3>Linea de Tiempo</h3>
+						<img src={logo} alt=""></img>
 					</div>
 					<div className="header_rigth" id="header_rigth">
 						<p className="usuario" id="nombre_usuario">{usuarios.profileObj.name}</p>
@@ -31,11 +32,12 @@ const Dashboard =({usuarios})=>{
 				<aside id="aside">
 					<nav className={open ? 'sidebarOpen' : 'sidebar'}>
 						<a class="op_user" id="op_user" href="">
-							<i className="far fa-user"></i>
+							{/* <i className="far fa-home"></i> */}
+							<i class="fas fa-house-user"></i>
 							<span>Ver Perfil</span>
 						</a>
 						<a id="op_home" href=""
-							><i class="fas fa-home"></i>
+							><i class="fas fa-folder"></i>
 							<span>Temas</span>
 						</a>
 						<a id="op_sign_out" href="">
