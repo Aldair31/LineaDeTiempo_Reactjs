@@ -1,26 +1,23 @@
+import React from "react";
+
 import { GoogleLogin } from 'react-google-login';
 import { useState,useEffect } from 'react'
-import '../style/Login.css'
-import img from '../img/imgLogin.jpeg'
-import img1 from '../img/imgEPICI.png'
+
+import '../style/general.css';
+import '../style/Acceso.css';
+
+import logo from '../img/Logo.png'
+import imgLogin from '../img/imgLogin.jpeg'
+
 import url from '../keys/backend_keys';
-import Dashboard from './Dashboard';
-import { BrowserRouter,Routes, Route, NavLink, useNavigate} from 'react-router-dom';
 
-
-//
-function Login() {
-
+const Acceso = () => {
     const [logeado, setLogeado] = useState(null)
     const responseGoogle = (response) => {
         console.log(response);
         setLogeado(response)
-        // navigate("Dashboard")
     }
-    // const navigate= useNavigate()
-    // const handleClick = () =>{
-    //     navigate("Dashboard")
-    // }
+
     useEffect(
         function(){
             if(logeado!=null){
@@ -46,40 +43,23 @@ function Login() {
             }
         },[logeado]
     )
-    
+
     return (
-        <>
+        <div>
             {
-                logeado !== null ? 
+                logeado != null ? 
+                <></>:
                 <div>
-                    <Dashboard usuarios={logeado}/>
-                    {/* <BrowserRouter>
-                        <Routes>
-                            <Route
-                                path='/Dashboard'
-                                element={<Dashboard usuarios={logeado}/>}
-                            />
-                        </Routes>
-                    </BrowserRouter> */}
-                </div> 
-                :
-                <div class="imgContainer">
-                    {/* <div className='lineaLogin'>
-                        <h2>Bienvenido a TimeLine</h2>
-                    </div> */}
                     <header className="header">
                         <div className="contenedorIMG">
-                            <img src={img1} alt=''></img>
+                            <img src={logo} alt=''></img>
                         </div>
                     </header>
-                    <div className='container'>
-                        <div className="container_form">
-                            <h3>Iniciar Sesión</h3>
-                            {/* <img src={img} alt="imagen de linea de tiempo"/> */}
-                            <br />
-                            {/* <br /> */}
-                            <form className='formulario'>
-                                <div className="btnlogin">
+                    <div className="cuerpoAcceso">
+                        <div className="contenidoForm">
+                            <p>Iniciar Sesión</p>
+                            <form className='formularioAcceso'>
+                                <div className="btnLogin">
                                 {
                                     logeado == null ? <GoogleLogin
                                         clientId="1056717193966-him0af1q4ed7csfr3n0iol6cct22qkj5.apps.googleusercontent.com"
@@ -93,14 +73,12 @@ function Login() {
                                 </div>
                             </form>
                         </div>
-                        <div className='imagen_Login'>
-                            <img src={img} alt="imagen de linea de tiempo" width='450px'/>
-                        </div>
+                        <img src={imgLogin} alt=''></img>
                     </div>
                 </div>
             }
-        </>
-    );
+        </div>
+    )
 }
-export default Login;
-//.
+
+export default Acceso

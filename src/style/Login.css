@@ -22,16 +22,16 @@
 .container{
     background-color: #FFF;
     display: flex;
-    gap: 50px;
+    gap: 100px;
     justify-content: center;
     align-items: center;
-    height: 88vh;
+    height: 100vh;
 }
 .container_form{
     /* background-color: #0a1e35; */
     background-color: #163C79;
     border-radius: 15px;
-    padding: 40px;
+    padding: 20px 40px;
     /* opacity: 0.9; */
 }
 .container_form img{
@@ -87,7 +87,7 @@
         
     } */
     .container{
-        /* padding-top: -50%; */
+        padding-top: 20vh;
         flex-direction: column-reverse;
     }
     .container .imagen_Login img{
