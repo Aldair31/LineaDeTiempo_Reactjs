@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../style/Dashboard.css';
 import Themes from './Themes';
+import Temas from './Temas'
+import ListadoLineasDeTiempoTema from './ListadoLineasDeTiempoTema';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import LineaDeTiempo from './LineaDeTiempo';
 import logo from '../img/Logo.png'
@@ -47,7 +49,7 @@ const Dashboard =({usuarios})=>{
 					</nav>
 				</aside>
 				<div class="contenido" >
-					<Themes id={usuarios.profileObj.googleId}/>
+					<ListadoLineasDeTiempoTema id={usuarios.profileObj.googleId}/>
 				</div>
 				{/* <BrowserRouter>
 					<Routes>
