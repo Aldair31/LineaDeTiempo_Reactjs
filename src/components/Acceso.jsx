@@ -10,6 +10,7 @@ import logo from '../img/Logo.png'
 import imgLogin from '../img/imgLogin.jpeg'
 
 import url from '../keys/backend_keys';
+import Dashboard from './Dashboard';
 
 const Acceso = () => {
     const [logeado, setLogeado] = useState(null)
@@ -48,7 +49,9 @@ const Acceso = () => {
         <div>
             {
                 logeado != null ? 
-                <></>:
+                <>
+                    <Dashboard usuarios={logeado}/>
+                </>:
                 <div>
                     <header className="header">
                         <div className="contenedorIMG">

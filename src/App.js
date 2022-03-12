@@ -12,41 +12,28 @@ function App() {
   return (
     <div>  
         {/* <PaginaPrincipal/> */}
-        <Login/>
+        <Acceso/>
         {/* <FormularioDatosUsuario/> */}
        <>
       {/* <BrowserRouter>
-        <Routes> */}
-            {/* <Route
+        <Routes>
+            <Route
                 path='/'
                 element={<General/>}
             />
             <Route
-                path='/a'
-                element={<PaginaPrincipal/>}
-            />
-            <Route
-                path='/Acceso'
+                path='/Login/'
                 element={<Acceso/>}
             />
-            <Route
-                path='/Login'
-                element={<Login/>}
-            /> */}
-            {/* {user && (
+           {user && (
               <Route
                 path='/Dashboard'
                 element={<Dashboard usuarios={()=>setUser(true)}/>}
               />
-            )} */}
-            
-        {/* </Routes>
+            )}
+        </Routes>
       </BrowserRouter> */}
       </>
-      
-      
-      {/* <Login/>  */}
-      {/* <Dashboard/> */}
     </div>
   );
 }

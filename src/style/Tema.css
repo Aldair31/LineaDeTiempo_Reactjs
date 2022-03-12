@@ -105,6 +105,20 @@
     column-gap: 45px;
 }
 
+.listadoTemas .tema .iconosTema button{
+    background-color: transparent;
+    border: none;
+}
+
+.listadoTemas .tema .iconosTema button:hover{
+    cursor: pointer;
+}
+
+.listadoTemas .tema .iconosTema button i{
+    font-size: 20px;
+}
+
+
 /* PARA EL MODAL */
 .modalAgregarTema{
     background: rgba(22, 60, 121, 0.3);

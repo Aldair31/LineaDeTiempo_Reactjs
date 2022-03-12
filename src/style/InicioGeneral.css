@@ -1,0 +1,59 @@
+.contenedorAgregadosRecientes{
+    width: 100%;
+}
+
+.contenedorAgregadosRecientes .nombreyBuscarAgregados{
+    padding-top: 4%;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 60px;
+}
+.contenedorAgregadosRecientes .nombreyBuscarAgregados .buscarAgregados{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border: 2px solid #F5F5F5;
+    border-radius: 20px;
+    padding: 0px 10px;
+    column-gap: 5px;
+}
+
+.contenedorAgregadosRecientes .nombreyBuscarAgregados .buscarAgregados input{
+    border: none;
+    border-style: none;
+    outline: 0;
+    padding: 0px 20px;
+}
+
+
+
+.contenedorAgregadosRecientes .nombreyBuscarAgregados h2{
+    padding-top: 1%;
+    color: #163C79;
+    font-weight: 500;
+    /* padding-bottom: 5%; */
+}
+.contenedorAgregadosRecientes .contenidoAgregado{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: #FFF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin-bottom: 25px;
+}
+
+.contenedorAgregadosRecientes .contenidoAgregado h3{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.contenedorAgregadosRecientes .contenidoAgregado .btnVerMas{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}

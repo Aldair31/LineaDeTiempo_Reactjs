@@ -52,7 +52,9 @@ function Login() {
             {
                 logeado !== null ? 
                 <div>
+                    {/* <Link to={'Inicio'}/> */}
                     <Dashboard usuarios={logeado}/>
+
                     {/* <BrowserRouter>
                         <Routes>
                             <Route

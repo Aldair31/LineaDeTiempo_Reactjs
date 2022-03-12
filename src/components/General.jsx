@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const Algo = () => {
     const navigate = useNavigate()
     const handleClick = () =>{
-        navigate('Acceso')
+        navigate('Login')
     }
 
     return (
@@ -24,7 +24,9 @@ const Algo = () => {
                     <img src={img1} alt=''></img>
                 </div>
                 <div className="contenedorENLACES">
-                    <button onClick={handleClick}>Ingresar</button>
+                    <button 
+                        onClick={handleClick}
+                    >Ingresar</button>
                     <div className="separador"></div>
                     <a href="#nosotros">Sobre Nosotros</a>
                 </div>

@@ -3,9 +3,10 @@ import '../style/Dashboard.css';
 import Themes from './Themes';
 import Temas from './Temas'
 import ListadoLineasDeTiempoTema from './ListadoLineasDeTiempoTema';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import LineaDeTiempo from './LineaDeTiempo';
 import logo from '../img/Logo.png'
+import InicioGeneral from './InicioGeneral';
 
 const Dashboard =({usuarios})=>{
 	const [open, setOpen]= useState(false)
@@ -30,36 +31,57 @@ const Dashboard =({usuarios})=>{
 				</nav>
 			</header>
 			
-			<main className='contenedor_dashboard'>
-				<aside id="aside">
-					<nav className={open ? 'sidebarOpen' : 'sidebar'}>
-						<a class="op_user" id="op_user" href="">
-							{/* <i className="far fa-home"></i> */}
-							<i class="fas fa-house-user"></i>
-							<span>Ver Perfil</span>
-						</a>
-						<a id="op_home" href=""
-							><i class="fas fa-folder"></i>
-							<span>Temas</span>
-						</a>
-						<a id="op_sign_out" href="">
-							<i class="fas fa-sign-out-alt"></i>
-							<span>Salir</span>
-						</a>
-					</nav>
-				</aside>
-				<div class="contenido" >
-					<ListadoLineasDeTiempoTema id={usuarios.profileObj.googleId}/>
-				</div>
-				{/* <BrowserRouter>
-					<Routes>
-						<Route
-							path='/LineaDeTiempo/:id'
-							element={<LineaDeTiempo/>}
-						/>
-					</Routes>
-				</BrowserRouter>  */}
-			</main>
+			<BrowserRouter>
+				<main className='contenedor_dashboard'>
+					<aside id="aside">
+						<nav className={open ? 'sidebarOpen' : 'sidebar'}>
+							<Link className="opcion" id="op_user" to='/AgregadasRecientemente'>
+								<i class="fas fa-house-user"></i>
+								<span>Inicio</span>		
+								{/* <i className="far fa-home"></i> */}		
+							</Link>
+							<Link className="opcion" id="op_home" to="/Temas"
+								><i class="fas fa-folder"></i>
+								<span>Temas</span>
+							</Link>
+							<Link className="opcion" id="op_sign_out" to="/">
+								<i class="fas fa-sign-out-alt"></i>
+								<span>Salir</span>
+							</Link>
+						</nav>
+					</aside>
+					<div class="contenido" >
+						{/* <BrowserRouter> */}
+							<Routes>
+								<Route
+									path='/AgregadasRecientemente'
+									element={<InicioGeneral/>}
+								/>
+								<Route
+									path='/Temas'
+									element={<Temas id={usuarios.profileObj.googleId}/>}
+								/>
+								<Route
+									path='/LineaDeTiempo/:id'
+									element={<ListadoLineasDeTiempoTema id={usuarios.profileObj.googleId}/>}
+								/>
+							</Routes>
+						
+						{/* <InicioGeneral/> */}
+						{/* <LineaDeTiempo/> */}
+						{/* <Themes id={usuarios.profileObj.googleId}/> */}
+					</div>
+					{/* <BrowserRouter>
+						<Routes>
+							<Route
+								path='/LineaDeTiempo/:id'
+								element={<LineaDeTiempo/>}
+							/>
+						</Routes>
+					</BrowserRouter>  */}
+				</main>
+			</BrowserRouter> 
+
 		</div>
 		<div>
 		{/* <BrowserRouter>

@@ -86,13 +86,17 @@ main .contenido {
 }
 main aside nav {
 	height: 100%;
-	background-color:#dbdbdb;
+	/* background-color:#dbdbdb; */
+	background-color: #FFF;
+	/* box-shadow: 6px 2px 9px 1px rgba(197, 197, 197, 0.459); */
+	box-shadow: 6px 2px 9px 1px #dbdbdb;
 }
-main nav a {
-	font-size: 12px;
+main nav .opcion {
+	font-size: 20px;
 	/* background-color: #32363E; */
-	background-color: #f4f4f4;
+	/* background-color: #f4f4f4; */
 	/* background-color: #35495e; */
+	background-color: #FFF;
 	display: flex;
 	gap: 10px;
 	margin: 0;
@@ -101,13 +105,26 @@ main nav a {
 	/* color: #fff; */
 	color: #000;
 	/* border-bottom: 1px solid #73D3CF ; */
-	border-bottom: 1px solid #61DAFB ;
+	border-bottom: 1px solid #163C79; ;
 	text-decoration: none;
 }
-main nav a:hover {
-	background-color: #fff;
+main nav .opcion:hover {
+	/* background-color: #fff; */
+	background-color:#dbdbdb;
 	/* color: #41b883; */
-	color: #61DAFB;
+	/* color: #61DAFB; */
+	color: #163C79;
+}
+main nav .opcion:active{
+	background:#dbdbdb !important;
+	color: #163C79 !important;
+}
+main nav .opcion:nth-last-child(3){
+	background:#dbdbdb;
+	color: #163C79;
+}
+main nav .opcion span{
+	font-size: 15px;
 }
 .op_user {
 	/* color: #fff; */
