@@ -8,19 +8,17 @@ import '../style/Tema.css'
 const LineaDeTiempo = () =>{
 
     const [formTema, setFormTema] = useState(false);
+    const onFormTema = () => {
+		setFormTema(!formTema);
+	};
 
     const ModalAgregarTema = () => {
-        // const [temas, setTemas] = useState({});
-        // const handleChange = (e) => {
-            // setTemas({
-            //     ...temas,
-            //     [e.target.name]: e.target.value,
-            // });
-        // };
+        
         return (
             <>
                 <div className="modalAgregarTema">
                     <form className="formTema">
+                        
                         <div className="contenedorModalTema">
                             <h3>REGISTRAR TEMA</h3>
                             <div className="formContenidoTema">
@@ -60,7 +58,7 @@ const LineaDeTiempo = () =>{
                                 <div className="botonesModalTema">
                                     <button 
                                         className="btnRegistrar"
-                                       
+                                    
                                     >Registrar</button>
                                     <button 
                                         className="btnCancelar"
@@ -68,7 +66,8 @@ const LineaDeTiempo = () =>{
                                     >Cancelar</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        
                     </form>
                 </div>
             </>
@@ -152,7 +151,15 @@ const LineaDeTiempo = () =>{
                 </span>
                 <time>{data.date}</time>
                 <p>{data.text}</p>
-                {/* {data.link && (
+                {formTema &&  <ModalAgregarTema/>}
+                {/* <button onClick={onFormTema} >
+                    
+                    modalAgregarTema
+                </button> */}
+
+                {data.link && (
+
+                    
                     // <a
                     //     href={data.link.url}
                     //     target="_blank"
@@ -165,9 +172,12 @@ const LineaDeTiempo = () =>{
                     //     {data.link.text}
 
                     // </button>
-                    <>
-                    </>
-                )} */}
+
+                    <button onClick={onFormTema} >
+                        {data.link.text}
+                    </button>
+                    
+                )}
                 <span className="circle" />
             </div>
         </div>
@@ -187,15 +197,15 @@ const LineaDeTiempo = () =>{
     
     const App = () => <>
 
-
         <Timeline />
     </>;
     
     
-    return(      
-        
+    return(             
         
         <div>      
+            {/* {formTema &&  <ModalAgregarTema/> } */}
+
             <img src={Logo} alt="" 
                 className="LogoLineaTiempo"            
             />
@@ -203,19 +213,8 @@ const LineaDeTiempo = () =>{
 
                 <App />
 
-            </div>
-
-            {/* <footer>
-                <p>
-                    Created with <i class="fa fa-heart"></i> by
-                    <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-                    - Read about how I created this on my
-                    <a target="_blank" href="https://www.florin-pop.com/blog/2019/04/how-to-create-a-timeline-with-react/">blog</a>
-                </p>
-            </footer> */}                    
-
+            </div>   
         </div>        
     )
 }
-
 export default LineaDeTiempo
