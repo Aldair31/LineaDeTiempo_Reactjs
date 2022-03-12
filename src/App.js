@@ -6,13 +6,15 @@ import PaginaPrincipal from "./components/PaginaPrincipal";
 import General from './components/General'
 import Acceso from "./components/Acceso";
 import FormularioDatosUsuario from '../src/components/FormularioDatosUsuario'
+import LineaDeTiempo from "./components/LineaDeTiempo";
 
 function App() {
   const [user, setUser]= useState(null)
   return (
     <div>  
         {/* <PaginaPrincipal/> */}
-        <Acceso/>
+        {/* <Acceso/> */}
+        <LineaDeTiempo> </LineaDeTiempo>
         {/* <FormularioDatosUsuario/> */}
        <>
       {/* <BrowserRouter>
