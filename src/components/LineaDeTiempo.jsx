@@ -6,42 +6,50 @@ import { useState } from "react";
 import '../style/Tema.css'
 
 const LineaDeTiempo = () =>{
-
-    const [formTema, setFormTema] = useState(false);
-    const onFormTema = () => {
-		setFormTema(!formTema);
+    const [agregarEvento, setAgregarEvento] = useState(false)
+    const [mostrarEventos, setMostrarEventos] = useState(false);
+    //REGISTRAR EVENTOS 
+    const AgregarEventos = () => {
+        setAgregarEvento(!agregarEvento)
+    }
+    //MOSTRAR EVENTOS
+    const MostrarEvento = () => {
+		setMostrarEventos(!mostrarEventos);
 	};
-
-    const ModalAgregarTema = () => {
-        
+   
+    const ModalAgregarEvento = () => {
+        const [eventos, setEventos] = useState({});
+        const handleChange = (e) => {
+            setEventos({
+                ...eventos,
+                [e.target.name]: e.target.value,
+            });
+        };
         return (
             <>
                 <div className="modalAgregarTema">
                     <form className="formTema">
-                        
                         <div className="contenedorModalTema">
-                            <h3>REGISTRAR TEMA</h3>
+                            <h3>REGISTRAR Eventos</h3>
                             <div className="formContenidoTema">
+                                <p>
+                                    <label>Fecha del Evento</label>
+                                    <input type="date" name="" id=""/>
+                                </p>
                                 <p>
                                     <label>Título</label>
                                     <input
                                         type="text"
                                         name='Titulo'
-                                        // onChange={handleChange}
-                                        // value={temas.Titulo}
+                                        onChange={handleChange}
+                                        value={eventos.Titulo}
                                     ></input>
                                 </p>
                                 <p>
-                                    <label>Palabras clave</label>
-                                    <textarea
-                                        rows="2"
-                                        cols="50"
-                                        placeholder="Palabras clave"
-                                        name="PalabrasClave"
-                                        style={{resize:'none'}}
-                                        // onChange={handleChange}
-                                        // value={temas.PalabrasClave}
-                                    ></textarea>
+                                    <label>Imagen</label>
+                                    <button>
+                                        <i class="fas fa-file-arrow-up"></i>
+                                    </button>
                                 </p>
                                 <p>
                                     <label>Descripcion</label>
@@ -51,18 +59,92 @@ const LineaDeTiempo = () =>{
                                         placeholder="Descripcion"
                                         name="Descripcion"
                                         style={{resize:'none'}}
-                                        // onChange={handleChange}
-                                        // value={temas.Descripcion}
+                                        onChange={handleChange}
+                                        value={eventos.Descripcion}
                                     ></textarea>
+                                </p>
+                                <p>
+                                    <label>URL</label>
+                                    <input
+                                        placeholder="URL"
+                                        name="Titulo"
+                                        onChange={handleChange}
+                                        value={eventos.Descripcion}
+                                    ></input>
                                 </p>
                                 <div className="botonesModalTema">
                                     <button 
                                         className="btnRegistrar"
-                                    
+                                        onClick={(e) => {
+                                            // e.preventDefault()
+                                            // // NuevaOrden()
+                                            // fetch(`${url}/api/createTheme`,{
+                                            //     headers: {
+                                            //         'Content-Type': 'application/json',
+                                            //         'Accept': 'application/json',
+                                            //     },
+                                            //     method: 'POST',
+                                            //     body: JSON.stringify({
+                                            //         temas,
+                                            //         name: temas.Titulo,
+                                            //         keywords: temas.PalabrasClave,
+                                            //         description: temas.Descripcion,
+                                            //         current: true,
+                                            //         codigo:id
+                                            //     }),
+                                            // }).then((resp) =>resp.json()).then((data)=>{
+                                            //     console.log(data)
+                                            //     alert('Se Registró tema correctamente')
+                                            //     setDatos([
+                                            //         ...datos,
+                                            //         {
+                                            //             id:temas.id,
+                                            //             name: temas.Titulo,
+                                            //             keywords: temas.PalabrasClave,
+                                            //             description: temas.Descripcion,
+                                            //             current: true,
+                                            //             codigo:id
+                                            //         },
+                                            //     ]);
+                                            // })
+                                        }}
                                     >Registrar</button>
                                     <button 
                                         className="btnCancelar"
-                                        onClick={() => {setFormTema(false)}}
+                                        onClick={() => {setAgregarEvento(false)}}
+                                    >Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </>
+        )
+    }
+    const ModalMostrarEvento = () => {
+        
+        return (
+            <>
+                <div className="modalAgregarTema">
+                    <form className="formTema">
+                        
+                        <div className="contenedorModalTema">
+                            <h3>EVENTO</h3>
+                            <br />
+                            <div className="formContenidoTema">
+                            date: 'February 25 2019'
+                            <br />
+                            <br />
+                            text: 'Started working on the app-ideas repository',
+                            <br />
+                            <br />
+                            {/* {timelineData.map((data, idx) => (
+                                <TimelineItem data={data} key={idx} />
+                            ))} */}
+                                <div className="botonesModalTema">
+                                    <button 
+                                        className="btnCancelar"
+                                        onClick={() => {setMostrarEventos(false)}}
                                     >Cancelar</button>
                                 </div>
                             </div>
@@ -145,20 +227,23 @@ const LineaDeTiempo = () =>{
         
        
        <div className="timeline-item">
-            <div className="timeline-item-content">
+            <div className="timeline-item-content" onClick={MostrarEvento}>
+                
                 <span className="tag" style={{ background: data.category.color }}>
                     {data.category.tag}
                 </span>
                 <time>{data.date}</time>
                 <p>{data.text}</p>
-                {formTema &&  <ModalAgregarTema/>}
+               
+                
+                
                 {/* <button onClick={onFormTema} >
                     
                     modalAgregarTema
                 </button> */}
 
                 {data.link && (
-
+                <></>
                     
                     // <a
                     //     href={data.link.url}
@@ -173,9 +258,9 @@ const LineaDeTiempo = () =>{
 
                     // </button>
 
-                    <button onClick={onFormTema} >
-                        {data.link.text}
-                    </button>
+                    // <button onClick={onFormTema} >
+                    //     {data.link.text}
+                    // </button>
                     
                 )}
                 <span className="circle" />
@@ -196,7 +281,6 @@ const LineaDeTiempo = () =>{
         );
     
     const App = () => <>
-
         <Timeline />
     </>;
     
@@ -206,14 +290,21 @@ const LineaDeTiempo = () =>{
         <div>      
             {/* {formTema &&  <ModalAgregarTema/> } */}
 
-            <img src={Logo} alt="" 
+            {/* <img src={Logo} alt="" 
                 className="LogoLineaTiempo"            
-            />
-            <div id="app">                
-
+            /> */}
+            {/* {formTema &&  <ModalAgregarTema/>} */}
+            <div>Deporte</div>
+            <div className="btnEvento" onClick={AgregarEventos}>
+                <i class="fa-regular fa-circle-plus"></i>
+                <p>Evento</p>
+            </div>
+            <div id="app">   
+                            
                 <App />
-
-            </div>   
+            </div>  
+            {agregarEvento && <ModalAgregarEvento/>}
+            {mostrarEventos &&  <ModalMostrarEvento/>} 
         </div>        
     )
 }

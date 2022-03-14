@@ -65,6 +65,10 @@ const Dashboard =({usuarios})=>{
 									path='/LineaDeTiempo/:id'
 									element={<ListadoLineasDeTiempoTema id={usuarios.profileObj.googleId}/>}
 								/>
+								<Route
+									path='/Eventos'
+									element={<LineaDeTiempo/>}
+								/>
 							</Routes>
 						
 						{/* <InicioGeneral/> */}

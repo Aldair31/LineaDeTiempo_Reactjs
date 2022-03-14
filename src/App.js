@@ -13,8 +13,8 @@ function App() {
   return (
     <div>  
         {/* <PaginaPrincipal/> */}
-        {/* <Acceso/> */}
-        <LineaDeTiempo> </LineaDeTiempo>
+        <Acceso/>
+        {/* <LineaDeTiempo> </LineaDeTiempo> */}
         {/* <FormularioDatosUsuario/> */}
        <>
       {/* <BrowserRouter>
