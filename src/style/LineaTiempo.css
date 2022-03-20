@@ -28,15 +28,58 @@
 /* h1 {
 	text-align: center;
 } */
-.btnEvento{
+.tituloybtnEvento{
+    width: 80%;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 1%;
+}
+.tituloybtnEvento i{
+    display: grid;
+    justify-items: right;
+    /* align-items: center; */
+    font-size: 30px;
+
+}
+.tituloybtnEvento .tituloLinea{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+.tituloybtnEvento .btnEvento{
+    /* width: 50%; */
+    /* display: grid; */
     display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid #163C79; */
+    column-gap: 10px;
+    border-radius: 15px;
+    width: 50%;
+    background-color: #FFF;
+    padding: 5px 5px;
+    /* display: flex; */
+    /* grid-template-columns: repeat(2, 1fr); */
+    /* align-items: center;
+    column-gap: 10px; */
+    /* justify-content: center; */
+    /* justify-items: left; */
+    /* border-radius: 15px;
+    background-color: #FFF;
+    padding: 10px 30px; */
+    /* height: 7vh;
     align-items: center;
     justify-content: center;
     column-gap: 10px;
     border-radius: 15px;
-    width: 18%;
+    width: 35%;
     background-color: #FFF;
-    padding: 0px 5px;
+    padding: 0px 0px; */
 }
 
 .btnEvento:hover{
@@ -56,22 +99,26 @@
 
 
 #app {
-	padding: 0 20px;
-	width: 100%;
-    height: 80vh;
-    background-color: #f4f4f4;
+	/* padding: 0 20px; */
+	width: 80%;
+    height: 75vh;
+    background-color: rgba(22, 60, 121, 0.3);
+    margin: auto;
+    /* background-color: #f4f4f4; */
     overflow-y: scroll;
 }
 
 .timeline-container {
+    
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .timeline-container::after {
     background-color: #e17b77;
+    /* background-color: #163C79; */
     content: '';
     position: absolute;
     left: calc(50% - 2px);
@@ -178,6 +225,8 @@
 .timeline-item-content .circle {
     background-color: #fff;
     border: 3px solid #e17b77;
+    /* border: 3px solid #163C79; */
+    /* background-color: #163C79; */
     border-radius: 50%;
     position: absolute;
     top: calc(50% - 10px);
@@ -224,7 +273,7 @@
     }
 }
 
-footer {
+/* footer {
     background-color: #222;
     color: #fff;
     font-size: 14px;
@@ -247,4 +296,4 @@ footer i {
 footer a {
     color: #3c97bf;
     text-decoration: none;
-}
+} */

@@ -132,10 +132,11 @@ const LineaDeTiempo = () =>{
                             <h3>EVENTO</h3>
                             <br />
                             <div className="formContenidoTema">
-                            date: 'February 25 2019'
+                            '25/01/2022'
                             <br />
+                            
                             <br />
-                            text: 'Started working on the app-ideas repository',
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
                             <br />
                             <br />
                             {/* {timelineData.map((data, idx) => (
@@ -145,7 +146,7 @@ const LineaDeTiempo = () =>{
                                     <button 
                                         className="btnCancelar"
                                         onClick={() => {setMostrarEventos(false)}}
-                                    >Cancelar</button>
+                                    >Cerrar</button>
                                 </div>
                             </div>
                         </div> 
@@ -155,13 +156,13 @@ const LineaDeTiempo = () =>{
             </>
         )
     }
-
+    
     const timelineData = [
         {
-            text: 'Started working on the app-ideas repository',
-            date: 'February 25 2019',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, sint!',
+            date: '25/01/2022',
             category: {
-                tag: 'app-ideas',
+                tag: 'Evento 1',
                 color: '#FFDB14'
             },
             link: {
@@ -170,10 +171,10 @@ const LineaDeTiempo = () =>{
             }
         },
         {
-            text: 'Started the Weekly Coding Challenge program',
-            date: 'March 04 2019',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, sint!',
+            date: '04/02/2022',
             category: {
-                tag: 'blog',
+                tag: 'Evento 2',
                 color: '#e17b77'
             },
             link: {
@@ -182,10 +183,10 @@ const LineaDeTiempo = () =>{
             }
         },
         {
-            text: 'Got 1.000 followers on Twitter',
-            date: 'March 07 2019',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, sint!',
+            date: '07/02/2022',
             category: {
-                tag: 'twitter',
+                tag: 'Evento 3',
                 color: '#1DA1F2'
             },
             link: {
@@ -195,10 +196,10 @@ const LineaDeTiempo = () =>{
         },
         {
             text:
-                'I published my first article in the FreeCodeCamp Medium Publication',
-            date: 'March 18 2019',
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, sint!',
+            date: '18/02/2022',
             category: {
-                tag: 'medium',
+                tag: 'Evento 4',
                 color: '#018f69'
             },
             link: {
@@ -208,10 +209,10 @@ const LineaDeTiempo = () =>{
             }
         },
         {
-            text: 'Over 12.000 views in a single day on my Medium posts',
-            date: 'April 05 2019',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, sint!',
+            date: '05/03/2022',
             category: {
-                tag: 'medium',
+                tag: 'Evento 5',
                 color: '#018f69'
             },
             link: {
@@ -294,11 +295,15 @@ const LineaDeTiempo = () =>{
                 className="LogoLineaTiempo"            
             /> */}
             {/* {formTema &&  <ModalAgregarTema/>} */}
-            <div>Deporte</div>
-            <div className="btnEvento" onClick={AgregarEventos}>
-                <i class="fa-regular fa-circle-plus"></i>
-                <p>Evento</p>
+            <div className="tituloybtnEvento">
+                <div className="btnEvento" onClick={AgregarEventos}>
+                    <i class="fa-regular fa-circle-plus"></i>
+                    <p>Evento</p>
+                </div>
+                <div className="tituloLinea">Linea de Tiempo</div>
+                <i class="fas fa-ellipsis"></i>
             </div>
+            
             <div id="app">   
                             
                 <App />

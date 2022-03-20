@@ -16,24 +16,27 @@ const Acceso = () => {
     const [logeado, setLogeado] = useState(null)
     const responseGoogle = (response) => {
         console.log(response);
-        setLogeado(response)
+        if (!response.error) {
+            setLogeado(response) 
+        }
+        
     }
 
     useEffect(
         function(){
-            if(logeado!=null){
-                fetch(`${url}/api/register`, {
+            if(logeado){
+                fetch(`${url}/api/Persona/nuevaPersona`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
                     },
                     method: 'POST',
                     body: JSON.stringify({
-                        codigo: logeado?.profileObj.googleId,
-                        name: logeado?.profileObj.name,
-                        email: logeado?.profileObj.email,
-                        photo: logeado?.profileObj.imageUrl,
-                        current: true,
+                        // codigo: logeado?.profileObj.googleId,
+                        Nombre: logeado?.profileObj.name,
+                        Correo: logeado?.profileObj.email,
+                        Foto: logeado?.profileObj.imageUrl,
+                        Vigencia: 1,
                         
                     }),
                 })
@@ -48,7 +51,7 @@ const Acceso = () => {
     return (
         <div>
             {
-                logeado != null ? 
+                logeado ? 
                 <>
                     <Dashboard usuarios={logeado}/>
                 </>:
