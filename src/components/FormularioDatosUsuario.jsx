@@ -1,13 +1,26 @@
 import { Form, Formik } from "formik";
-import React from "react";
+import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect} from 'react';
+import url from '../keys/backend_keys';
 import '../style/DatosUsuario.css'
 
-const FormularioDatosUsuario = () =>{
+const FormularioDatosUsuario = ({persona}) =>{
+    const [usuario, setUsuario]= useState([]);
+    const navigate = useNavigate()
+    const codigo = persona.codigo
+    useEffect(() => {
+        fetch(`${url}/api/Persona/BuscarPersona/${codigo}`)
+            .then((resp) => resp.json())
+            .then((data) => {
+                setUsuario(data);
+            });
+    }, []);
+   
     return(
         <>
-            <header className="datosUsuario">
-                
-            </header>
+            <header className="datosUsuario"></header>
             <section className="contenedorDatosUsuario">
                 <div className="completarDatos">
                     <h2>Completa tus Datos</h2>
@@ -46,8 +59,8 @@ const FormularioDatosUsuario = () =>{
                                             </div>
                                         </div>
                                         <div className="dato4">
-                                             <label>País</label>  
-                                             <input type="text"/> 
+                                            <label>País</label>  
+                                            <input type="text"/> 
                                         </div>
                                     </div>
                                 </div>
@@ -59,17 +72,23 @@ const FormularioDatosUsuario = () =>{
                                     <input type="text" />
                                 </div>
                             </div>
-                            <button className="btnDatosRegistro">
+                            <button className="btnDatosRegistro"
+                            onClick={() =>{
+                                navigate(`/Dashboard`)
+                            }
+                            }>
                                 Terminar Registro
                             </button>
                         </Form>
-
                     </Formik>
-
                 </div>
             </section>
         </>
     )
 }
 
-export default FormularioDatosUsuario
+const mapStateToProps = (state) => ({
+	persona: state.persona,
+});
+
+export default connect(mapStateToProps)(FormularioDatosUsuario);

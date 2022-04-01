@@ -1,20 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 
 import '../style/general.css';
-
 import logo from '../img/Logo.png'
 import img1 from '../img/imgEPICI.png'
 import img2 from '../img/imgLineaDeTiempo.jpeg'
 import img3 from '../img/imgUNPRG.jpeg'
-
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Algo = () => {
     const navigate = useNavigate()
     const handleClick = () =>{
         navigate('Login')
     }
-
+   
     return (
         <>
             <header className="header">
@@ -49,7 +47,10 @@ const Algo = () => {
                                     </p>
                                 </div>
                                 <div className="btnRegistrar">
-                                    <button>Regístrate gratis</button>
+                                    <button 
+                                    onClick={handleClick}
+                                    >
+                                        Regístrate gratis</button>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +158,7 @@ const Algo = () => {
             </body>
             <footer className="footerCopy">
                 <p>© 2022 Copyright: macrono.com</p>
-            </footer>
+            </footer> 
         </>
     )
 }

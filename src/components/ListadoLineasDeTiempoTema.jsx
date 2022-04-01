@@ -1,13 +1,16 @@
 import React, {useState} from "react";
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import '../style/Tema.css'
 import '../style/ListadoLinea.css'
 
 const ListadoLineasDeTiempoTema = () => {
     //MODAL PARA AGREGAR LÍNEA DE TIEMPO
+    const codigo = useParams()
+    console.log('Codigo de tema',codigo)
     const ModalAgregarLinea = () => {
         return (
             <>
+            {Hola}
                 <div className="modalAgregarTema">
                     <form className="formTema">
                         <div className="contenedorModalTema">
@@ -125,9 +128,9 @@ const ListadoLineasDeTiempoTema = () => {
                         <div className="iconosLinea">
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <Link to='/Eventos'>
+                            {/* <Link to='/Eventos'>
                                 <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <i class="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}} onClick={onFormCompartir}></i>
@@ -139,9 +142,9 @@ const ListadoLineasDeTiempoTema = () => {
                         <div className="iconosLinea">
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <Link to='/Eventos'>
+                            {/* <Link to='/Eventos'>
                                 <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <i class="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}}></i>
@@ -152,9 +155,9 @@ const ListadoLineasDeTiempoTema = () => {
                         <div className="iconosLinea">
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <Link to='/Eventos'>
+                            {/* <Link to='/Eventos'>
                                 <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <i class="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}}></i>
@@ -165,9 +168,9 @@ const ListadoLineasDeTiempoTema = () => {
                         <div className="iconosLinea">
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <Link to='/Eventos'>
+                            {/* <Link to='/Eventos'>
                                 <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <i class="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}}></i>
@@ -178,9 +181,9 @@ const ListadoLineasDeTiempoTema = () => {
                         <div className="iconosLinea">
                             <i class="fa-regular fa-pen-to-square"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <Link to='/Eventos'>
+                            {/* <Link to='/Eventos'>
                                 <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                            </Link>
+                            </Link> */}
 
                         </div>
                     </div>

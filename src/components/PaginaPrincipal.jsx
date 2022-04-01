@@ -13,9 +13,9 @@ const PaginaPrincipal = () =>{
     const handleClick = () =>{
         navigate('Login')
     }
-    const handleClick1 = () =>{
-        navigate('Registrarse')
-    }
+    // const handleClick1 = () =>{
+    //     navigate('Registrarse')
+    // }
     return(
         <>
         {/* {openlogin && <Login/>} */}

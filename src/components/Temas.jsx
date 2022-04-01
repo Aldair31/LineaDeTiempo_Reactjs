@@ -1,22 +1,15 @@
 import React, {useState, useEffect} from "react";
 import '../style/Tema.css'
 import url from '../keys/backend_keys'
-import {Link} from 'react-router-dom'
+import {BrowserRouter, Link,  NavLink} from 'react-router-dom'
 import ListadoLineasDeTiempoTema from './ListadoLineasDeTiempoTema'
 
-const Temas = ({id}) => {
-
-    //IR A LISTADO LÍNEAS DE TIEMPO POR TEMA
-    // const navigate = useNavigate()
-    // const handleClick = () =>{
-    //     navigate('ListadoLineasDeTiempoTema')
-    // }
-
+const Temas = ({codigo}) => {
     const [datos, setDatos]= useState([]);
     const [buscar, setBuscar] = useState('')
 
     useEffect(() => {
-        fetch(`${url}/api/listTheme`)
+        fetch(`${url}/api/Tema/ListarTemasUsuario/${codigo}`)
             .then((resp) => resp.json())
             .then((data) => {
                 setDatos(data);
@@ -27,7 +20,7 @@ const Temas = ({id}) => {
     function buscarTema(term){
 		return function(x){
 			// return x.name.includes(term) || !term
-            return (x.name.toString().toLowerCase()).includes(term.toLowerCase()) || !term
+            return (x.Nombre.toString().toLowerCase()).includes(term.toLowerCase()) || !term
 		}
 	}
 
@@ -86,7 +79,7 @@ const Temas = ({id}) => {
                                         onClick={(e) => {
                                             e.preventDefault()
                                             // NuevaOrden()
-                                            fetch(`${url}/api/createTheme`,{
+                                            fetch(`${url}/api/Tema/CrearTema`,{
                                                 headers: {
                                                     'Content-Type': 'application/json',
                                                     'Accept': 'application/json',
@@ -94,26 +87,33 @@ const Temas = ({id}) => {
                                                 method: 'POST',
                                                 body: JSON.stringify({
                                                     temas,
-                                                    name: temas.Titulo,
-                                                    keywords: temas.PalabrasClave,
-                                                    description: temas.Descripcion,
-                                                    current: true,
-                                                    codigo:id
+                                                    Nombre: temas.Titulo,
+                                                    PalabrasClave: temas.PalabrasClave,
+                                                    Descripcion: temas.Descripcion,
+                                                    Vigencia: 'A',
+                                                    CodigoPersona:codigo
                                                 }),
                                             }).then((resp) =>resp.json()).then((data)=>{
-                                                console.log(data)
-                                                alert('Se Registró tema correctamente')
-                                                setDatos([
-                                                    ...datos,
-                                                    {
-                                                        id:temas.id,
-                                                        name: temas.Titulo,
-                                                        keywords: temas.PalabrasClave,
-                                                        description: temas.Descripcion,
-                                                        current: true,
-                                                        codigo:id
-                                                    },
-                                                ]);
+                                                if (data.ok) {
+                                                    console.log(data.Codigo)
+                                                    alert('Se Registró tema correctamente')
+                                                    setDatos([
+                                                        ...datos,
+                                                        {
+                                                            codigo:data.Codigo,
+                                                            Nombre: temas.Titulo,
+                                                            PalabrasClave: temas.PalabrasClave,
+                                                            Descripcion: temas.Descripcion,
+                                                            Vigencia: 'A',
+                                                            CodigoPersona:codigo
+                                                        },
+                                                    ]);
+                                                    setFormTema(false)
+                                                }
+                                                else{
+                                                    alert('El nombre del tema ya existe')
+                                                }
+                                                
                                             })
                                         }}
                                     >Registrar</button>
@@ -161,8 +161,8 @@ const Temas = ({id}) => {
                 datos.filter(buscarTema(buscar)).map((item) => {
                     return(
                         <>
-                            <div className="tema">
-                                <p>{item.name}</p>
+                            <div className="tema" key={item.Codigo}>
+                                <p>{item.Nombre}</p>
                                 <div className="iconosTema">
                                     <button>
                                         <i class="fa-regular fa-pen-to-square"></i>
@@ -170,21 +170,25 @@ const Temas = ({id}) => {
                                     <button
                                         onClick={(e)=>{
                                             e.preventDefault()
-                                            var rpta = window.confirm("¿Desea eliminar el tema seleccionado?")
+                                            var rpta = window.confirm("¿Desea dar de baja el tema seleccionado?")
                                             if(rpta){
-                                            fetch(`${url}/api/deleteTheme/${item.id}`, {
+                                            fetch(`${url}/api/Tema/DarDeBaja/${item.Codigo}`, {
                                                 headers: {
                                                     'Content-Type': 'application/json',
                                                     'Accept': 'application/json',
                                                 },
-                                                method: 'DELETE',
+                                                method: 'PUT',
+                                                body: JSON.stringify({
+                                                    ...item,
+                                                    Vigencia:'B'
+                                                }),
                                             })
                                                 .then((resp) => {
                                                     return resp.json();
                                                 })
                                                 .then((data) => {
-                                                    alert('Tema eliminado')
-                                                    setDatos(datos.filter((data)=> data.id !== item.id))
+                                                    alert('Tema dado de baja')
+                                                    setDatos(datos.filter((data)=> data.Codigo !== item.Codigo))
                                                 })
                                             }
                                         }}
@@ -192,9 +196,13 @@ const Temas = ({id}) => {
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>
                                     <button>
-                                        <Link to={`/LineaDeTiempo/${item.id}`}>
+                                        
+                                        <Link 
+                                            to={`LineaDeTiempo/${item.Codigo}`}
+                                        >
                                             <i class="fa-regular fa-arrow-up-right-from-square"></i>
                                         </Link>
+                                           
                                         {/* <i class="fa-regular fa-arrow-up-right-from-square"></i> */}
                                     </button>
                                     
@@ -204,46 +212,6 @@ const Temas = ({id}) => {
                     )
                 }
             )}
-                {/* <div className="tema">
-                    <p>Tema 1</p>
-                    <div className="iconosTema">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                    </div>
-                </div> */}
-                {/* <div className="tema">
-                    <p>Tema 2</p>
-                    <div className="iconosTema">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                    </div>
-                </div>
-                <div className="tema">
-                    <p>Tema 3</p>
-                    <div className="iconosTema">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                    </div>
-                </div>
-                <div className="tema">
-                    <p>Tema 4</p>
-                    <div className="iconosTema">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                    </div>
-                </div>
-                <div className="tema">
-                    <p>Tema 5</p>
-                    <div className="iconosTema">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <i class="fa-regular fa-arrow-up-right-from-square"></i>
-                    </div>
-                </div> */}
             </div>
         </div>
     )
