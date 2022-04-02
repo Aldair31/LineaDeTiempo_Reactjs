@@ -1,25 +1,62 @@
 import React, {useState, useEffect} from "react";
 import '../style/Tema.css'
 import url from '../keys/backend_keys'
-import {BrowserRouter, Link,  NavLink} from 'react-router-dom'
+import {BrowserRouter, Link,  NavLink, useLocation} from 'react-router-dom'
 import ListadoLineasDeTiempoTema from './ListadoLineasDeTiempoTema'
 
 const Temas = ({codigo}) => {
     const [datos, setDatos]= useState([]);
     const [buscar, setBuscar] = useState('')
 
+    // console.log("Codigo: ", codigo)
+
+    const {state} = useLocation()
+    const {Codigo} = state
+
+    console.log("STATE: ", state)
+
     useEffect(() => {
-        fetch(`${url}/api/Tema/ListarTemasUsuario/${codigo}`)
+        fetch(`${url}/api/Tema/ListarTemasUsuario/${Codigo}`)
             .then((resp) => resp.json())
             .then((data) => {
                 setDatos(data);
             });
     }, []);
 
+    const [paginaActual, setPaginaActual] = useState(0)
+    const datosFiltrados = () =>{
+        if(buscar.length === 0)
+            return datos.slice(paginaActual, paginaActual+5)
+
+        const filtrado = datos.filter(item => (item.Nombre.toLowerCase()).includes(buscar.toLowerCase()))
+
+        return filtrado.slice(paginaActual, paginaActual+5)
+    }
+
+    const [pagina, setPagina] = useState(0)
+    const paginaSiguiente = () =>{
+        if(datos.filter(item => (item.Nombre.toLowerCase()).includes(buscar.toLowerCase())).length > paginaActual + 5){
+            setPaginaActual(paginaActual+5)
+            setPagina(pagina+1)
+        }
+    }
+
+    const paginaAnterior = () =>{
+        if(paginaActual>0){
+            setPaginaActual(paginaActual-5)
+            setPagina(pagina-1)
+        }
+    }
+
+    const buscarT = ({target}) =>{
+        setPaginaActual(0)
+        setBuscar(target.value)
+    }
 
     function buscarTema(term){
 		return function(x){
 			// return x.name.includes(term) || !term
+            // setPaginaActual(0)
             return (x.Nombre.toString().toLowerCase()).includes(term.toLowerCase()) || !term
 		}
 	}
@@ -91,7 +128,7 @@ const Temas = ({codigo}) => {
                                                     PalabrasClave: temas.PalabrasClave,
                                                     Descripcion: temas.Descripcion,
                                                     Vigencia: 'A',
-                                                    CodigoPersona:codigo
+                                                    CodigoUsuario:Codigo
                                                 }),
                                             }).then((resp) =>resp.json()).then((data)=>{
                                                 if (data.ok) {
@@ -105,7 +142,7 @@ const Temas = ({codigo}) => {
                                                             PalabrasClave: temas.PalabrasClave,
                                                             Descripcion: temas.Descripcion,
                                                             Vigencia: 'A',
-                                                            CodigoPersona:codigo
+                                                            CodigoUsuario:Codigo
                                                         },
                                                     ]);
                                                     setFormTema(false)
@@ -137,40 +174,43 @@ const Temas = ({codigo}) => {
 
     return(
         <div className="contenidoTemas">
-            <h1>MIS TEMAS</h1>
+            {/* <h1>MIS TEMAS</h1> */}
             <div className="accionesTema">
                 <div className="btnTema" onClick={onFormTema}>
-                    <i class="fa-regular fa-circle-plus"></i>
+                    <i className="fa-regular fa-circle-plus"></i>
                     <p>Tema</p>
                 </div>
                 {formTema && <ModalAgregarTema/>}
+                <h1>MIS TEMAS</h1>
                 <div className="buscarTema">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                     <input
                         type="search"
                         placeholder="Buscar tema"
                         name='buscar'
-						onChange={e => setBuscar(e.target.value)}
+						// onChange={e => setBuscar(e.target.value)}
+                        value={buscar}
+                        onChange={buscarT}
                         autoComplete="off"
                     >
                     </input>
                 </div>
             </div>
             <div className="listadoTemas">
-            {
-                datos.filter(buscarTema(buscar)).map((item) => {
-                    return(
-                        <>
+                {
+                    // datosFiltrados().filter(buscarTema(buscar)).map((item) => {
+                    datosFiltrados().map((item) => {
+                        return(
                             <div className="tema" key={item.Codigo}>
                                 <p>{item.Nombre}</p>
                                 <div className="iconosTema">
                                     <button>
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <i className="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button
                                         onClick={(e)=>{
                                             e.preventDefault()
-                                            var rpta = window.confirm("¿Desea dar de baja el tema seleccionado?")
+                                            var rpta = window.confirm("¿Desea eliminar el tema seleccionado?")
                                             if(rpta){
                                             fetch(`${url}/api/Tema/DarDeBaja/${item.Codigo}`, {
                                                 headers: {
@@ -178,40 +218,39 @@ const Temas = ({codigo}) => {
                                                     'Accept': 'application/json',
                                                 },
                                                 method: 'PUT',
-                                                body: JSON.stringify({
-                                                    ...item,
-                                                    Vigencia:'B'
-                                                }),
                                             })
                                                 .then((resp) => {
                                                     return resp.json();
                                                 })
                                                 .then((data) => {
-                                                    alert('Tema dado de baja')
+                                                    alert('Tema eliminado')
                                                     setDatos(datos.filter((data)=> data.Codigo !== item.Codigo))
                                                 })
                                             }
                                         }}
                                     >
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <i className="fa-regular fa-trash-can"></i>
                                     </button>
                                     <button>
-                                        
-                                        <Link 
-                                            to={`LineaDeTiempo/${item.Codigo}`}
-                                        >
-                                            <i class="fa-regular fa-arrow-up-right-from-square"></i>
+                                        <Link to={`${item.Nombre}`} state={{Codigo: item.Codigo, Nombre: item.Nombre}}>
+                                            <i className="fa-regular fa-arrow-up-right-from-square"></i>
                                         </Link>
-                                           
-                                        {/* <i class="fa-regular fa-arrow-up-right-from-square"></i> */}
                                     </button>
                                     
                                 </div>
                             </div>
-                        </>
-                    )
-                }
-            )}
+                        )
+                    }
+                )}
+                <div className="paginacion">
+                    <button onClick={paginaAnterior}>
+                        <i className="fa-solid fa-angle-left"></i>
+                    </button>
+                    <p>{pagina+1}</p>
+                    <button onClick={paginaSiguiente}>
+                        <i className="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     )

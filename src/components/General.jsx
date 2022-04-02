@@ -29,7 +29,7 @@ const Algo = () => {
                     <a href="#nosotros">Sobre Nosotros</a>
                 </div>
             </header>
-            <body className="cuerpoPagina">
+            <div className="cuerpoPagina">
                 <section className="seccionPrincipal">
                     <div className="principalTexto">
                         <h1 className="tituloPrincipal">Macrono</h1>
@@ -70,7 +70,7 @@ const Algo = () => {
                     <h1>APRENDE CÓMO</h1>
                     <div className="aprendeUnico">
                         <div className="cuadrosAprende">
-                            <i class="fa-light fa-folder-open"></i>
+                            <i className="fa-light fa-folder-open"></i>
                             <div className="cuadro">
                                 <div>Crea Temas</div>
                             </div>
@@ -85,7 +85,7 @@ const Algo = () => {
                     </div>
                     <div className="aprendeUnico">
                         <div className="cuadrosAprende">
-                            <i class="fa-light fa-timeline-arrow"></i>
+                            <i className="fa-light fa-timeline-arrow"></i>
                             <div className="cuadro">
                                 <div>Crea Líneas</div>
                             </div>
@@ -100,7 +100,7 @@ const Algo = () => {
                     </div>
                     <div className="aprendeUnico">
                         <div className="cuadrosAprende">
-                            <i class="fa-regular fa-share-nodes"></i>
+                            <i className="fa-regular fa-share-nodes"></i>
                             <div className="cuadro">
                                 <div>Comparte</div>
                             </div>
@@ -155,7 +155,7 @@ const Algo = () => {
                         </div>
                     </div>
                 </section>
-            </body>
+            </div>
             <footer className="footerCopy">
                 <p>© 2022 Copyright: macrono.com</p>
             </footer> 

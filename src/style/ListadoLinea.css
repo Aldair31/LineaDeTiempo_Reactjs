@@ -47,6 +47,25 @@
     color: #163C79;
 }
 
+.accionesListadoLinea .buscarLinea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid #163C79; */
+    border-radius: 15px;
+    width: 40%;
+    background-color: #FFF;
+    padding: 0px 5px;
+}
+
+.accionesListadoLinea .buscarLinea input{
+    border: none;
+    outline: 0;
+    text-align: center;
+    font-weight: 700;
+    padding: 10px 10px;
+}
+
 .listadoLineas .LineaGeneral{
     display: flex;
     column-gap: 2%;
@@ -77,6 +96,30 @@
 .listadoLineas .LineaGeneral .Linea .iconosLinea{
     display: flex;
     column-gap: 45px;
+}
+
+.paginacion{
+    display: flex;
+    gap: 15px;
+    justify-content: right;
+}
+
+.paginacion button{
+    background-color: transparent;
+    border: none;
+}
+
+.paginacion button:hover{
+    cursor: pointer;
+}
+
+.paginacion button i{
+    font-size: 20px;
+}
+
+.paginacion p{
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* PARA EL MODAL */

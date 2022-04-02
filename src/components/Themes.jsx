@@ -448,7 +448,7 @@ const Themes = ({id})=>{
     //                             textDecoration:'underline'
     //                         }}
     //                     >
-    //                         <strong style={{fontSize:'40px'}}><i class="fas fa-plus-circle"></i></strong> 
+    //                         <strong style={{fontSize:'40px'}}><i className="fas fa-plus-circle"></i></strong> 
                             
     //                     </button>
     //             </div>
@@ -545,9 +545,9 @@ const Themes = ({id})=>{
                         textDecoration:'underline'
                     }}
                 >
-                     <p class="eliminar"><button>Eliminar</button></p>
+                     <p className="eliminar"><button>Eliminar</button></p>
 
-                    {/* <strong style={{fontSize:'40px'}}><i class="fas fa-plus-circle"></i></strong>  */}
+                    {/* <strong style={{fontSize:'40px'}}><i className="fas fa-plus-circle"></i></strong>  */}
                     
                 </button>
             </div>
@@ -576,7 +576,7 @@ const Themes = ({id})=>{
                         }}
                     >
                         <p>Temas</p>
-                        <i class="fas fa-plus-circle"></i>
+                        <i className="fas fa-plus-circle"></i>
                         
                     </button>
                 </div>
@@ -601,12 +601,12 @@ const Themes = ({id})=>{
                                     <div className='tema'>
                                         <h3>Nombre: {item.name}</h3>
                                         {/* {item.id} */}
-                                        <div class="tema_info">
+                                        <div className="tema_info">
                                             <p>Palabras Claves: {item.keywords}</p>
                                             <p>Descripcion: {item.description}</p>
                                             <div className='barra_btn'>
                                                 <div className='iconos_btn'>
-                                                    <p class="btn_eliminar"><button
+                                                    <p className="btn_eliminar"><button
                                                         onClick={(e)=>{
                                                             e.preventDefault()
                                                             var rpta = window.confirm("¿Desea eliminar el tema seleccionado?")
@@ -647,7 +647,7 @@ const Themes = ({id})=>{
                                                                 // setDataItem(item)
                                                             }}
                                                             >
-                                                            <i class="fas fa-pen"></i>
+                                                            <i className="fas fa-pen"></i>
                                                         </button>   
                                                     </p>
                                                 </div>

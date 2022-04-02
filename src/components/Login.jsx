@@ -65,7 +65,7 @@ function Login() {
                     </BrowserRouter> */}
                 </div> 
                 :
-                <div class="imgContainer">
+                <div className="imgContainer">
                     {/* <div className='lineaLogin'>
                         <h2>Bienvenido a TimeLine</h2>
                     </div> */}

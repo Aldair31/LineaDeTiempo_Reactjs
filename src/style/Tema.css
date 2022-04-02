@@ -118,6 +118,30 @@
     font-size: 20px;
 }
 
+.listadoTemas .paginacion{
+    display: flex;
+    gap: 15px;
+    justify-content: right;
+}
+
+.listadoTemas .paginacion button{
+    background-color: transparent;
+    border: none;
+}
+
+.listadoTemas .paginacion button:hover{
+    cursor: pointer;
+}
+
+.listadoTemas .paginacion button i{
+    font-size: 20px;
+}
+
+.listadoTemas .paginacion p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 /* PARA EL MODAL */
 .modalAgregarTema{

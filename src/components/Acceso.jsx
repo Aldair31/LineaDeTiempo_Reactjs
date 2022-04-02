@@ -10,6 +10,15 @@ import '../style/general.css';
 import '../style/Acceso.css';
 
 const Acceso = ({persona, personaCreado, personaLogeado}) => {
+	//asdad
+	// const [loginData, setLoginData] = useState(
+	// 	localStorage.getItem('loginData')
+	// 	  ? JSON.parse(localStorage.getItem('loginData'))
+	// 	  : null
+	//   );
+
+    // console.log("Persona tu patita: ", persona)
+
     const [logeado, setLogeado] = useState(null)
     const navigate = useNavigate()
 
@@ -41,11 +50,12 @@ const Acceso = ({persona, personaCreado, personaLogeado}) => {
                     .then((data) => {
                         if(data.ok){
                             personaCreado(data)
-                            navigate(`/DatosUsuario`)
+                            navigate(`/NuevoUsuario`)
                         }
                         else{
+                            localStorage.setItem('loginData', JSON.stringify(data));
                             personaLogeado(data)
-                            navigate(`/Dashboard`)
+                            navigate(`/Dashboard/AgregadasRecientemente`)
                         }
                     })
             }
@@ -67,7 +77,7 @@ const Acceso = ({persona, personaCreado, personaLogeado}) => {
                             <form className='formularioAcceso'>
                                 <div className="btnLogin">
                                     <GoogleLogin
-                                        clientId="1056717193966-him0af1q4ed7csfr3n0iol6cct22qkj5.apps.googleusercontent.com"
+                                        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                                         buttonText="Continuar con Google"
                                         onSuccess={responseGoogle}
                                         onFailure={responseGoogle}

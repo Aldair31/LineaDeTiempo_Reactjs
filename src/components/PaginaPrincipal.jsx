@@ -84,7 +84,7 @@ const PaginaPrincipal = () =>{
                     <h2>APRENDE CÓMO</h2>
                     <div className="seccion_aprende">
                         <div className="aprende_como">
-                            <i class="fas fa-folder"></i>
+                            <i className="fas fa-folder"></i>
                             <div className="cuadro">
                                 <div>Crea Temas</div>
                             </div>
@@ -100,7 +100,7 @@ const PaginaPrincipal = () =>{
                     </div>
                     <div className="seccion_aprende">
                         <div className="aprende_como">
-                            <i class="fas fa-clock"></i>
+                            <i className="fas fa-clock"></i>
                             <div className="cuadro">
                                 <div>Crea Líneas</div>
                             </div>
@@ -116,7 +116,7 @@ const PaginaPrincipal = () =>{
                     </div>
                     <div className="seccion_aprende">
                         <div className="aprende_como">
-                            <i class="fas fa-share"></i>
+                            <i className="fas fa-share"></i>
                             <div className="cuadro">
                                 <div>Comparte</div>
                             </div>

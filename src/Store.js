@@ -3,6 +3,7 @@ import { createStore } from "redux";
 const initialState = {
 	persona: {
 		ok: false,
+		message: '',
 		codigo:null
 	},
 };
@@ -13,6 +14,7 @@ const reducerPersona = (state = initialState, action) => {
 				...state,
 				persona: {
 					ok: action.persona.ok,
+					message: action.persona.message,
 					codigo:action.persona.codigo
 				},
 			};
@@ -21,6 +23,7 @@ const reducerPersona = (state = initialState, action) => {
 				...state,
 				persona: {
 					ok: action.persona.ok,
+					message: action.persona.message,
 					codigo:action.persona.codigo
 				},
 			};
@@ -29,6 +32,7 @@ const reducerPersona = (state = initialState, action) => {
 				...state,
 				persona: {
 					ok: false,
+					message: '',
 					codigo: null
 				},
 			};

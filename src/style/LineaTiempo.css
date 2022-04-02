@@ -1,299 +1,140 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-/* * {
-	box-sizing: border-box;
+/* :root {
+    --contenido: "asd"
 } */
 
-.LogoLineaTiempo {
-    display: block;
-    width: auto;
-    height: 10vh;
-    margin: auto;
-    margin-top: 5%;
-}
-
-/* body {
-	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	min-height: 100vh;
-	font-family: 'Lato', sans-serif;
-	margin: 0;
-} */
-
-/* h1 {
-	text-align: center;
-} */
-.tituloybtnEvento{
+.Contenedor{
     width: 80%;
-    height: 10vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    margin-top: 1%;
+    max-height: 80vh;
+    margin-left: 10%;
+    margin-top: 3vh;
 }
-.tituloybtnEvento i{
-    display: grid;
-    justify-items: right;
-    /* align-items: center; */
-    font-size: 30px;
 
+.Contenedor .accionesLinea{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+    margin-bottom: 2%;
 }
-.tituloybtnEvento .tituloLinea{
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-}
-.tituloybtnEvento .btnEvento{
-    /* width: 50%; */
-    /* display: grid; */
+
+.Contenedor .accionesLinea .btnEvento{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 2px solid #163C79; */
     column-gap: 10px;
     border-radius: 15px;
-    width: 50%;
+    width: 18%;
     background-color: #FFF;
-    padding: 5px 5px;
-    /* display: flex; */
-    /* grid-template-columns: repeat(2, 1fr); */
-    /* align-items: center;
-    column-gap: 10px; */
-    /* justify-content: center; */
-    /* justify-items: left; */
-    /* border-radius: 15px;
-    background-color: #FFF;
-    padding: 10px 30px; */
-    /* height: 7vh;
-    align-items: center;
-    justify-content: center;
-    column-gap: 10px;
-    border-radius: 15px;
-    width: 35%;
-    background-color: #FFF;
-    padding: 0px 0px; */
+    padding: 0px 5px;
 }
 
-.btnEvento:hover{
+.Contenedor .accionesLinea .btnEvento:hover{
     cursor: pointer;
 }
 
-.btnEvento i{
+.Contenedor .accionesLinea .btnEvento i{
     font-size: 20px;
     font-weight: 500;
 }
 
-.btnEvento p{
+.Contenedor .accionesLinea .btnEvento p{
     font-size: 20px;
     font-weight: 500;
     color: #163C79;
 }
 
-
-#app {
-	/* padding: 0 20px; */
-	width: 80%;
-    height: 75vh;
-    background-color: rgba(22, 60, 121, 0.3);
-    margin: auto;
-    /* background-color: #f4f4f4; */
-    overflow-y: scroll;
-}
-
-.timeline-container {
-    
+.Contenedor .accionesLinea .masOpciones{
     display: flex;
-    flex-direction: column;
-    position: relative;
-    margin: 20px 0;
+    justify-content: right;
+    font-size: 30px;
+    width: 10%;
+    background-color: transparent;
+    border: none;
 }
 
-.timeline-container::after {
-    background-color: #e17b77;
-    /* background-color: #163C79; */
-    content: '';
-    position: absolute;
-    left: calc(50% - 2px);
-    width: 4px;
-    height: 100%;
-}
-
-.timeline-item {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 30px;
-    position: relative;
-    margin: 10px 0;
-    width: 50%;
-}
-
-.timeline-item:nth-child(odd) {
-    align-self: flex-end;
-    justify-content: flex-start;
-    padding-left: 30px;
-    padding-right: 0;
-}
-
-.timeline-item-content {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 15px;
-    position: relative;
-    width: 400px;
-    max-width: 70%;
-    text-align: right;
+.Contenedor .accionesLinea .masOpciones i:hover{
     cursor: pointer;
 }
 
-.timeline-item-content::after {
-    content: ' ';
-    background-color: #fff;
-    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    right: -7.5px;
-    top: calc(50% - 7.5px);
-    transform: rotate(45deg);
-    width: 15px;
-    height: 15px;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content {
-    text-align: left;
-    align-items: flex-start;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content::after {
-    right: auto;
-    left: -7.5px;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-item-content .tag {
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    top: 5px;
-    left: 5px;
-    letter-spacing: 1px;
-    padding: 5px;
-    position: absolute;
-    text-transform: uppercase;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content .tag {
-    left: auto;
-    right: 5px;
-}
-
-.timeline-item-content time {
-    color: #777;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.timeline-item-content p {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 15px 0;
-    max-width: 250px;
-}
-
-.timeline-item-content a {
-	color: #333;
-	text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.timeline-item-content a::after {
-    content: ' ►';
-    font-size: 12px;
-}
-
-.timeline-item-content .circle {
-    background-color: #fff;
-    border: 3px solid #e17b77;
-    /* border: 3px solid #163C79; */
-    /* background-color: #163C79; */
-    border-radius: 50%;
-    position: absolute;
-    top: calc(50% - 10px);
-    right: -40px;
-    width: 20px;
-    height: 20px;
-    z-index: 10;
-}
-
-.timeline-item:nth-child(odd) .timeline-item-content .circle {
-    right: auto;
-    left: -40px;
-}
-
-@media screen and (max-width: 900px) {
-    .timeline-item-content {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .timeline-item-content,
-    .timeline-item:nth-child(odd) .timeline-item-content {
-        padding: 15px 10px;
-        text-align: center;
-        align-items: center;
-    }
-
-    .timeline-item-content .tag {
-        width: calc(100% - 10px);
-        text-align: center;
-    }
-
-    .timeline-item-content time {
-        margin-top: 20px;
-    }
-
-    .timeline-item-content a {
-        text-decoration: underline;
-    }
-
-    .timeline-item-content a::after {
-        display: none;
-    }
-}
-
-/* footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
+.Eventos {
+    /* margin-top: 2.5vh; */
+    height: 75vh;
+    background: rgba(22, 60, 121, 0.12);
+    font-family: "Nunito", sans-serif;
     text-align: center;
-    z-index: 999;
+    /* overflow-y: scroll; */
+    display: flex;
+    justify-content: center;
 }
 
-footer p {
-    margin: 10px 0;
+/* PARA MODAL EVENTO */
+.modalAgregarEvento{
+    background: rgba(22, 60, 121, 0.3);
+    position: fixed;
+    z-index: 100;
+    /* top: 10vh; */
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    /* z-index: 2; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-footer i {
-    color: red;
+.modalAgregarEvento .contenedorFormModal{
+    background-color: white;
 }
 
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-} */
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .tituloForm{
+    text-align: center;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoForm{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoForm .datosFila{
+    display: block;
+    width: 100%;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones{
+    margin-right: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones button{
+    padding: 10px 15px;
+    font-size: 15px;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones button:hover{
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones .btnRegistrar{
+    background-color: #163C79;
+    color: #FFF;
+}
+
+.modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones .btnCancelar{
+    background-color: rgba(22, 60, 121, 0.12);
+    color: #000;
+}
+
+@media screen and (max-width: 1200px) {
+    .Contenedor{
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+.hola:hover{
+    cursor: pointer;
+}
