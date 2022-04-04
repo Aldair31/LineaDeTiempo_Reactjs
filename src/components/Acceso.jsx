@@ -3,7 +3,7 @@ import logo from '../img/Logo.png'
 import imgLogin from '../img/imgLogin.jpeg'
 import { connect } from 'react-redux';
 import url from '../keys/backend_keys';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, BrowserRouter} from "react-router-dom";
 import { GoogleLogin } from 'react-google-login';
 import { useState,useEffect } from 'react'
 import '../style/general.css';
@@ -18,6 +18,14 @@ const Acceso = ({persona, personaCreado, personaLogeado}) => {
 	//   );
 
     // console.log("Persona tu patita: ", persona)
+
+    // useEffect(() => {
+    //     const usuarioLogeadoJson = window.localStorage.getItem('loginData')
+	// 	if(usuarioLogeadoJson) {
+	// 		const usuarioLogeado = JSON.parse(window.localStorage.getItem('loginData'))
+	// 		personaLogeado(usuarioLogeado)
+	// 	}
+    // }, [])
 
     const [logeado, setLogeado] = useState(null)
     const navigate = useNavigate()

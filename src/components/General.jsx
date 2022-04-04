@@ -7,7 +7,7 @@ import img2 from '../img/imgLineaDeTiempo.jpeg'
 import img3 from '../img/imgUNPRG.jpeg'
 import {useNavigate} from "react-router-dom";
 
-const Algo = () => {
+const General = () => {
     const navigate = useNavigate()
     const handleClick = () =>{
         navigate('Login')
@@ -163,4 +163,4 @@ const Algo = () => {
     )
 }
 
-export default Algo
+export default General

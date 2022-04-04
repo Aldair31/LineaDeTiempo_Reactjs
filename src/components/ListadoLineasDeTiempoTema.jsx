@@ -8,6 +8,8 @@ const ListadoLineasDeTiempoTema = () => {
     const {state} = useLocation()
     const { Codigo, Nombre } = state
     const [lineasTema, setLineasTema] = useState([])
+
+    console.log("Codigo  Tema: ", Codigo)
     //MODAL PARA AGREGAR LÍNEA DE TIEMPO
     const ModalAgregarLinea = () => {
         const [lineas, setLineas] = useState({});
@@ -82,7 +84,6 @@ const ListadoLineasDeTiempoTema = () => {
                                                 if(data.ok){
                                                     alert('Se Registró tema correctamente')
                                                     setLineasTema([
-                                                        ...lineasTema,
                                                         {
                                                             Codigo:data.Codigo,
                                                             Nombre: lineas.Nombre,
@@ -92,14 +93,21 @@ const ListadoLineasDeTiempoTema = () => {
                                                             Vista: 'P',
                                                             CodigoTema: Codigo
                                                         },
+                                                        ...lineasTema,
                                                     ]);
+                                                    setPaginaActual(0)
+                                                    setPagina(0)
+                                                    setFormLinea(false)
                                                 }
                                             })
                                         }}
                                     >Registrar</button>
                                     <button 
                                         className="btnCancelar"
-                                        onClick={() => {setFormLinea(false)}}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            setFormLinea(false)
+                                        }}
                                     >Cancelar</button>
                                 </div>
                             </div>
@@ -115,7 +123,7 @@ const ListadoLineasDeTiempoTema = () => {
 		setFormLinea(!formLinea);
 	};
 
-    const ModalCompartir = ({URL}) => {
+    const ModalCompartir = ({Codigo}) => {
         return (
             <>
                 <div className="modalCompartirLinea">
@@ -127,22 +135,27 @@ const ListadoLineasDeTiempoTema = () => {
                                     <i className="fa-brands fa-facebook" style={{color:'#166FE5'}}></i>
                                     <i className="fa-brands fa-whatsapp" style={{color:'#25D366'}}></i>
                                 </div>
-                                <p>
+                                <div>
                                     <label>URL</label>
                                     <div style={{display:'flex', columnGap:'3%'}}>
                                         <input
                                             type="text"
-                                            name='Titulo'
-                                            value={URL}
-                                            // value="https://www.nombreapp.com/linea/15423"
+                                            name='URL'
+                                            // defaultValue={'a'}
+                                            // value={URL}
+                                            defaultValue={`https://www.nombreapp.com/linea/${Codigo}`}
+                                            // onChange
                                         ></input>
                                         <i className="fa-regular fa-clipboard-check" style={{fontSize:'35px', marginTop:'3%'}} ></i>
                                     </div>
-                                </p>
+                                </div>
                                 <div className="botonesModalCompartir">
                                     <button 
                                         className="btnCancelar"
-                                        onClick={() => {setFormCompartir(false)}}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            setFormCompartir(false)
+                                        }}
                                     >Cancelar</button>
                                 </div>
                             </div>
@@ -195,71 +208,89 @@ const ListadoLineasDeTiempoTema = () => {
 
     const buscarT = ({target}) =>{
         setPaginaActual(0)
+        setPagina(0)
         setBuscar(target.value)
     }
 
+    //PARA EL CÓDIGO DE LA LÍNEA
+    const [CodigoLinea, setCodigoLinea] = useState(null)
+
     return(
-        <div className="contenidoLineas">
-            {/* {
-                Nombre ?
-                    <h1 style={{textAlign: 'center'}}>{Nombre.toUpperCase()}</h1>
-                : null
-            } */}
-            <div className="accionesListadoLinea">
-                <div className="btnLinea" onClick={onFormLinea}>
-                    <i className="fa-regular fa-circle-plus"></i>
-                    <p>Línea</p>
+        <>
+            <div className="contenidoLineas">
+                <div className="accionesListadoLinea">
+                    <div className="btnLinea" onClick={onFormLinea}>
+                        <i className="fa-regular fa-circle-plus"></i>
+                        <p>Línea</p>
+                    </div>
+                    {formLinea && <ModalAgregarLinea/>}
+                    {
+                        Nombre ?
+                            <h1 style={{textAlign: 'center'}}>{Nombre.toUpperCase()}</h1>
+                        : null
+                    }
+                    <div className="buscarLinea">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="search"
+                            placeholder="Buscar Línea"
+                            name='buscar'
+                            value={buscar}
+                            onChange={buscarT}
+                            autoComplete="off"
+                        >
+                        </input>
+                    </div>
                 </div>
-                {formLinea && <ModalAgregarLinea/>}
-                {
-                    Nombre ?
-                        <h1 style={{textAlign: 'center'}}>{Nombre.toUpperCase()}</h1>
-                    : null
-                }
-                <div className="buscarLinea">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                    <input
-                        type="search"
-                        placeholder="Buscar Línea"
-                        name='buscar'
-                        value={buscar}
-                        onChange={buscarT}
-                        autoComplete="off"
-                    >
-                    </input>
+                <div className="listadoLineas" >
+                    {
+                        // datosFiltrados().length > 0 ?
+                            datosFiltrados().map((item) => (
+                                <div key={item.Codigo}>
+                                    <div className="LineaGeneral">
+                                        <div className="Linea">
+                                            <p>{item.Nombre}</p>
+                                            <div className="iconosLinea">
+                                                <i className="fa-regular fa-pen-to-square"></i>
+                                                <i className="fa-regular fa-trash-can"></i>
+                                                {/* <Link to={`/Dashboard/Temas/${item.Nombre}`}> */}
+                                                <Link to={`LineaTiempo/${item.Codigo}`} state={{Codigo: item.Codigo, Nombre: item.Nombre}}>
+                                                    <i className="fa-regular fa-arrow-up-right-from-square"></i>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <i className="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}} 
+                                            onClick={ () => {
+                                                onFormCompartir()
+                                                setCodigoLinea(item.Codigo)
+                                            }}
+                                        >
+                                        </i>
+                                        {formCompartir && <ModalCompartir Codigo={CodigoLinea}/>}
+                                    </div>
+                                </div>
+                            ))
+                        // :
+                        // <div className="noDatos">
+                        //     <p>Crea tu primera línea de tiempo sobre {Nombre}</p>
+                        // </div>
+                    }
                 </div>
             </div>
             {
-                datosFiltrados().map((item) => (
-                    <div className="listadoLineas" key={item.Codigo}>
-                        <div className="LineaGeneral">
-                            <div className="Linea">
-                                <p>{item.Nombre}</p>
-                                <div className="iconosLinea">
-                                    <i className="fa-regular fa-pen-to-square"></i>
-                                    <i className="fa-regular fa-trash-can"></i>
-                                    {/* <Link to={`/Dashboard/Temas/${item.Nombre}`}> */}
-                                    <Link to={`LineaTiempo/${item.Codigo}`} state={{Codigo: item.Codigo, Nombre: item.Nombre}}>
-                                        <i className="fa-regular fa-arrow-up-right-from-square"></i>
-                                    </Link>
-                                </div>
-                            </div>
-                            <i className="fa-regular fa-share-nodes" style={{fontSize:'25px', marginTop:'1%'}} onClick={onFormCompartir}></i>
-                            {formCompartir && <ModalCompartir URL={`https://www.macrono.com/linea/${item.Codigo}`}/>}
-                        </div>
+                datosFiltrados().length>0 ?
+                    <div className="paginacionLinea">
+                        <button onClick={paginaAnterior}>
+                            <i className="fa-solid fa-angle-left"></i>
+                        </button>
+                        <p>{pagina+1}</p>
+                        <button onClick={paginaSiguiente}>
+                            <i className="fa-solid fa-angle-right"></i>
+                        </button>
                     </div>
-                ))
+                : null
             }
-            <div className="paginacion">
-                <button onClick={paginaAnterior}>
-                    <i className="fa-solid fa-angle-left"></i>
-                </button>
-                <p>{pagina+1}</p>
-                <button onClick={paginaSiguiente}>
-                    <i className="fa-solid fa-angle-right"></i>
-                </button>
-            </div>
-        </div>
+        </>
     )
 }
 

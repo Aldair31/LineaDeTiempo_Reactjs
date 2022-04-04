@@ -12,37 +12,39 @@ const InicioGeneral = () =>{
                         <i className="fas fa-search"></i>
                     </div>
                 </div>
-                <div className="contenidoAgregado">
-                    <h3 className="tituloAgregado">Imperio Inca</h3>
-                    <button className="btnVerMas">
-                        <i 
-                            className="fas fa-external-link-alt">
-                        </i>
-                    </button>
-                </div>
-                <div className="contenidoAgregado">
-                    <h3 className="tituloAgregado">Imperio Inca</h3>
-                    <button className="btnVerMas">
-                        <i 
-                            className="fas fa-external-link-alt">
-                        </i>
-                    </button>
-                </div>
-                <div className="contenidoAgregado">
-                    <h3 className="tituloAgregado">Imperio Inca</h3>
-                    <button className="btnVerMas">
-                        <i 
-                            className="fas fa-external-link-alt">
-                        </i>
-                    </button>
-                </div>
-                <div className="contenidoAgregado">
-                    <h3 className="tituloAgregado">Imperio Inca</h3>
-                    <button className="btnVerMas">
-                        <i 
-                            className="fas fa-external-link-alt">
-                        </i>
-                    </button>
+                <div className="listadoAgregado">
+                    <div className="contenidoAgregado">
+                        <h3 className="tituloAgregado">Imperio Inca</h3>
+                        <button className="btnVerMas">
+                            <i 
+                                className="fas fa-external-link-alt">
+                            </i>
+                        </button>
+                    </div>
+                    <div className="contenidoAgregado">
+                        <h3 className="tituloAgregado">Imperio Inca</h3>
+                        <button className="btnVerMas">
+                            <i 
+                                className="fas fa-external-link-alt">
+                            </i>
+                        </button>
+                    </div>
+                    <div className="contenidoAgregado">
+                        <h3 className="tituloAgregado">Imperio Inca</h3>
+                        <button className="btnVerMas">
+                            <i 
+                                className="fas fa-external-link-alt">
+                            </i>
+                        </button>
+                    </div>
+                    <div className="contenidoAgregado">
+                        <h3 className="tituloAgregado">Imperio Inca</h3>
+                        <button className="btnVerMas">
+                            <i 
+                                className="fas fa-external-link-alt">
+                            </i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </>

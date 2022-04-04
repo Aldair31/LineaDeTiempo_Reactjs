@@ -35,6 +35,13 @@
     font-weight: 500;
     /* padding-bottom: 5%; */
 }
+
+.contenedorAgregadosRecientes .listadoAgregado{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .contenedorAgregadosRecientes .contenidoAgregado{
     width: 60%;
     display: flex;

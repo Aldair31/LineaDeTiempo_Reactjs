@@ -66,6 +66,12 @@
     padding: 10px 10px;
 }
 
+.listadoLineas{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .listadoLineas .LineaGeneral{
     display: flex;
     column-gap: 2%;
@@ -98,26 +104,29 @@
     column-gap: 45px;
 }
 
-.paginacion{
+.paginacionLinea{
     display: flex;
     gap: 15px;
     justify-content: right;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
 }
 
-.paginacion button{
+.paginacionLinea button{
     background-color: transparent;
     border: none;
 }
 
-.paginacion button:hover{
+.paginacionLinea button:hover{
     cursor: pointer;
 }
 
-.paginacion button i{
+.paginacionLinea button i{
     font-size: 20px;
 }
 
-.paginacion p{
+.paginacionLinea p{
     font-size: 20px;
     font-weight: bold;
 }

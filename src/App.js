@@ -8,8 +8,17 @@ import InicioGeneral from "./components/InicioGeneral";
 import Temas from "./components/Temas";
 import LineaDeTiempo from "./components/LineaDeTiempo";
 
+import { Provider } from 'react-redux';
+import Store from "./Store";
+import RootComponent from './components/RootComponent';
+
 function App() {
   return (
+    // <Provider store={Store}>
+    //   <RootComponent/>
+    // </Provider>
+    <>
+    {/* <RootComponent/> */}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<General/>}/>
@@ -22,25 +31,8 @@ function App() {
           <Route path="Temas/:NombreTema/LineaTiempo/:Codigo" element={<LineaDeTiempo/>}/>
         </Route>
       </Routes>
-      {/* <Routes>
-          <Route
-              path='/'
-              element={<General/>}
-          />
-          <Route
-              path='Login'
-              element={<Acceso/>}
-          />
-          <Route
-              path='/DatosUsuario'
-              element={<FormularioDatosUsuario/>}
-          />
-          <Route
-              path='/Dashboard/*'
-              element={<Dashboard/>}
-          />
-      </Routes> */}
     </BrowserRouter>
+    </>
   );
 }
 

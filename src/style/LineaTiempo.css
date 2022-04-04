@@ -63,7 +63,68 @@
     text-align: center;
     /* overflow-y: scroll; */
     display: flex;
+    justify-content: space-around;
+}
+
+.Eventos .Vertical{
+    width: 80%;
+    margin-top: 1.5%;
+}
+
+.Eventos .Horizontal{
+    width: 80%;
+    margin-top: 5%;
+    /* margin-left: 5%; */
+}
+
+.css-bqtt3d-TimelineContentRender{
+    margin-top: 3%;
+}
+
+.css-1tk7o9j-TimelineCardTitle{
+    display: flex;
     justify-content: center;
+    /* grid-column-gap: 20px; */
+}
+
+.css-1tk7o9j-TimelineCardTitle a{
+    text-decoration: none;
+    color: #163C79;
+}
+
+/* .css-1tk7o9j-TimelineCardTitle::after{
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 400;
+    content: "\f35d";
+}
+
+.css-1tk7o9j-TimelineCardTitle:hover{
+    cursor: pointer;
+} */
+
+.Eventos .modo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 7vh;
+    margin-top: 1.5%;
+    border-radius: 15%;
+    background-color: #163C79;
+    color: #FFF;
+}
+
+.Eventos .modo:hover{
+    cursor: pointer;
+}
+
+.Eventos .modo button{
+    color: #FFF;
+    border: none;
+    background-color: transparent;
+}
+
+.Eventos .modo button{
+    cursor: pointer;
 }
 
 /* PARA MODAL EVENTO */
@@ -71,9 +132,9 @@
     background: rgba(22, 60, 121, 0.3);
     position: fixed;
     z-index: 100;
-    /* top: 10vh; */
+    top: 10vh;
     left: 0;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     /* z-index: 2; */
     display: flex;
@@ -82,16 +143,20 @@
 }
 
 .modalAgregarEvento .contenedorFormModal{
-    background-color: white;
+    background: #FFF;
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .modalAgregarEvento .contenedorFormModal .formularioDatosEvento .tituloForm{
     text-align: center;
+    color: #163C79;
+    font-size: 25px;
 }
 
 .modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoForm{
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
+    margin-left: 5%;
 }
 
 .modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoForm .datosFila{
@@ -100,9 +165,9 @@
 }
 
 .modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones{
-    margin-right: 10%;
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 .modalAgregarEvento .contenedorFormModal .formularioDatosEvento .contenidoBotones button{
@@ -128,7 +193,7 @@
     color: #000;
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
     .Contenedor{
         width: 90%;
         margin-left: 5%;
@@ -137,4 +202,4 @@
 
 .hola:hover{
     cursor: pointer;
-}
+} */

@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import Themes from './Themes';
 import Temas from './Temas'
 import ListadoLineasDeTiempoTema from './ListadoLineasDeTiempoTema';
-import {Routes, Route, NavLink, Outlet} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, NavLink, Outlet} from 'react-router-dom';
 import LineaDeTiempo from './LineaDeTiempo';
 import logo from '../img/Logo.png'
 import InicioGeneral from './InicioGeneral';
 import { useEffect } from 'react';
 import url from '../keys/backend_keys';
 import '../style/Dashboard.css';
+import General from './General';
+import Acceso from './Acceso';
 
 const Dashboard =({persona, cerrarSesion})=>{
 	// const [loginData, setLoginData] = useState(
