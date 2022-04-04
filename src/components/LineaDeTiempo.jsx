@@ -245,6 +245,7 @@ const LineaDeTiempo = () => {
                 </button>
             </div>
             <div className="Eventos">
+                {/* www.google.com */}
                 <div className={isActive ? "Horizontal" : "Vertical"}>
                     <Chrono
                         mode={isActive ? 'HORIZONTAL' : 'VERTICAL_ALTERNATING'}

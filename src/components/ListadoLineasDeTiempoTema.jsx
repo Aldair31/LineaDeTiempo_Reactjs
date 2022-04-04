@@ -4,6 +4,14 @@ import '../style/Tema.css'
 import '../style/ListadoLinea.css'
 import url from "../keys/backend_keys";
 
+import {
+    FacebookShareCount,
+    FacebookShareButton,
+    FacebookIcon,
+    WhatsappShareButton,
+    WhatsappIcon,
+  } from "react-share";
+
 const ListadoLineasDeTiempoTema = () => {
     const {state} = useLocation()
     const { Codigo, Nombre } = state
@@ -132,8 +140,22 @@ const ListadoLineasDeTiempoTema = () => {
                             <h3>Compartir mediante:</h3>
                             <div className="formContenidoCompartir">
                                 <div className="iconosRedesSociales">
-                                    <i className="fa-brands fa-facebook" style={{color:'#166FE5'}}></i>
-                                    <i className="fa-brands fa-whatsapp" style={{color:'#25D366'}}></i>
+                                    {/* <i className="fa-brands fa-facebook" style={{color:'#166FE5'}}></i>
+                                    <i className="fa-brands fa-whatsapp" style={{color:'#25D366'}}></i> */}
+                                    <FacebookShareButton 
+                                        url={`https://www.macrono.com/linea/${Codigo}`}
+                                        quote={"Comparte tu línea"}
+                                        hashtag={"#Macrono"}
+                                    >
+                                        <FacebookIcon round={true}></FacebookIcon>
+                                    </FacebookShareButton>
+                                    <WhatsappShareButton
+                                        url={`https://www.macrono.com/linea/${Codigo}`}
+                                        quote={"Comparte tu línea"}
+                                        hashtag={"#Macrono"}
+                                    >
+                                        <WhatsappIcon round={true}></WhatsappIcon>
+                                    </WhatsappShareButton>
                                 </div>
                                 <div>
                                     <label>URL</label>
@@ -143,7 +165,7 @@ const ListadoLineasDeTiempoTema = () => {
                                             name='URL'
                                             // defaultValue={'a'}
                                             // value={URL}
-                                            defaultValue={`https://www.nombreapp.com/linea/${Codigo}`}
+                                            defaultValue={`https://www.macrono.com/linea/${Codigo}`}
                                             // onChange
                                         ></input>
                                         <i className="fa-regular fa-clipboard-check" style={{fontSize:'35px', marginTop:'3%'}} ></i>
